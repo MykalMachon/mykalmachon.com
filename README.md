@@ -1,4 +1,4 @@
-# Mykal.Codes
+# MykalMachon.com
 
 The personal website of Mykal Machon; where I post about whatever I want, whenever I want!
 

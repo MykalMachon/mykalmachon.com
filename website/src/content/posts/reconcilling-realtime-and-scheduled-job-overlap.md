@@ -67,6 +67,70 @@ Imagine a scheduled reconcilliation kicks off for course enrollment, when the re
 
 Imagine you have a new course registration window open up, a couple hundred people register in a few minutes, sweet! it all get's dealt with. 2 minutes later, the reconcilliation jobs run and immediately have to revalidate that those students, who we can logically assume are already registered, get jobs enqueued and we waste 3-4 API requests of our rate limit budget on verifying they're already enrolled.&#x20;
 
-This is a generous case. In practice, we were seeing huge waste in our reconcilliation jobs. Over 90% result in no action from the jobs, just extra load on the source and destination APIs for no added benefit. With production data it got to the point where big reconcillations would take over an hour to run… yikes.&#x20;
+This is a generous case. In practice, we were seeing huge waste in our reconcilliation jobs. Over 90% result in no action from the jobs, just extra load on the source and destination APIs for no added benefit. With production data it got to the point where big reconcillations would take over an hour to run!&#x20;
 
-##
+yikes!
+
+## Fixing things with Redis caching + locks&#x20;
+
+After some whiteboarding the most elegant solution I could think of for this was using a mixture of locks for *all* job types, not just the obvious race condition risks, and cache records that use a combination key of the job type and any primary related data
+
+### How does caching help here?&#x20;
+
+This isn't neccesarily traditional caching, but more like a recency lookup. We use keys that are unique for each operation by nature.&#x20;
+
+Say you're syncing *an enrollment event* of a *user with the id of abc* into *a course with an id 123*? your cache key would be: `cache.user-enroll.123.abc` and the value is the time of the last successful completion.&#x20;
+
+Here's a simplified example of what an actual handler function might look like using this pattern
+
+```typescript
+import { uuidv7 } from "uuidv7";
+import { ENROLLMENT_TTL_BASE, ENROLLMENT_TTL_JITTER } from '@integration/config';
+
+const handleEnrollment = async (event: EnrollmentEvent, deps: JobDeps) => {
+  // destructure event information and deps
+  const { userId, courseId, eventType } = event;
+  const { cache, logger } = deps;
+
+  // create a cache key 
+  const cachekey = cache.getCacheKey('cache', eventType, userId, courseId);
+  const recordInCache = await cache.get(cacheKey); 
+  if (recordInCache) { 
+    logger.info('exiting early; item in cache', {cacheKey});
+    return;
+  }
+
+  // REGULAR SYNC JOB STUFF HERE 
+  // this is where all the busines logic goes
+
+  // after a successful sync, store an item in the cache
+  const now = new Date().toDateTimeString()
+  const ttl = cache.generateTTL(ENROLLMENT_TTL_BASE, ENROLLMENT_TTL_JITTER);
+  await cache.set({key: cacheKey, value: now, ttl: ttl});
+  logger.info('job completed; record persisted in cache', {cacheKey});
+};
+```
+
+Another point, why use a non-static TTL for expiry? if we would have used a static TTL all of our cached records would expire at the same time, and on that next reconcillation run we would have a thundering herd problem, a **massive** chunk of items would have to be revalidated at the same time and our jobs would slow down to a crawl, this would be exactly like our initial approach but worse because there would be a long period where almost nothing was getting reconcilled at all.&#x20;
+
+By introducing jitter we go from TTL on our cached records looking like:&#x20;
+
+```
+RECORD-1 TTL: 4 hours
+RECORD-2 TTL: 4 hours
+RECORD-3 TTL: 4 hours
+```
+
+to being variable like:&#x20;
+
+```
+RECORD-1 TTL: 2 hours
+RECORD-2 TTL: 4 hours
+RECORD-3 TTL: 5 hours
+```
+
+This distributes expiry, and also load, evenly so that one reconcillation job is always checking a small subset of the records. In practice, we found around \~15-30% of our records are validated each run.&#x20;
+
+## Why do you need locks? aren't you already using them
+
+Yes, we were already using locks to some degree but we were using them for things like user creation or&#x20;

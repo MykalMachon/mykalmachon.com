@@ -1,9 +1,7 @@
 ---
 pubDate: 2026-02-12
 title: Reconcilling realtime and scheduled job overlap
-description: >-
-  some notes on a solution I worked out for reconcilling realtime job execution
-  and 
+description: a nerdy blog post about wrangling async workflows
 type: post
 draft: true
 tags:

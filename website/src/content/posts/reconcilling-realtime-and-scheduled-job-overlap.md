@@ -31,9 +31,44 @@ Everything seems great until...   &#x20;
 
 ### Scheduled reconcilliation syncs
 
-Remember how I said your source system was built in the 90s and has some *tacked on modern feature?*  Turns out, that the change notification system drops \~1% of the changes. No big deal, you knew this going in, so you made another system that would run each hour and resync everything between the two systems.
+Remember how I said your source system was built in the 90s and has some *tacked on modern feature?*  Turns out, that the change notification system fails to deliver \~1% of the changes. No big deal, you knew this going in, so you made another system that would run each hour and resync everything between the two systems. Essentially these are just scheduled jobs that run each hour,  grab all the data that needs to be synced, and enqueues the same job that a realtime change would for each resource / sync type. &#x20;
 
 This is also useful if someone accidentally screws something up in the course platform too. Accidentally unenrolled yourself from a course? no problem! The reconcillation sync is constantly trying to reconcile your destination system to look like the data in your source system; simple self-healing!
 
-## Sounds great! what's the problem?&#x20;
+### Organizing your job queues&#x20;
 
+To keep all of this organized and as DRY as possible you setup a bunch of job queues. You have one queue for each type of event you expect to recieve and write idemptotent functions to handle syncing each data type into your course platform:&#x20;
+
+* user-enroll: enrolls users into their courses&#x20;
+* user-unenroll: unenrolls users into their courses&#x20;
+* user-import: imports users into the system and provisions any related resouces&#x20;
+* course-import: imports courses into the system and provisions any related resources&#x20;
+
+For realtime you have a single ingest queue:&#x20;
+
+* realtime-ingest: handles incoming events and routes them to the correct&#x20;
+
+then for your reconcillation syncs, you setup a simple "load" job for each type of data you want to reconcile&#x20;
+
+* sync-users: loads all user state and drops each user record into the approriate queue
+* sync-courses: loads all current courses and queues them for import
+* sync-enrollments: loads all course enrollment records and enqueues enroll/unenroll jobs
+* etc, etc  &#x20;
+
+## Sounds great! what's the problem?
+
+I thought so too- everything looked good with synthetic workloads. But when we shipped to production and started seeing a few million job executions per day, some glaring issues starting showing up in Grafana and in our actual sync results.&#x20;
+
+Let's walk through a few scenarios:&#x20;
+
+## Race conditions&#x20;
+
+Imagine a scheduled reconcilliation kicks off for course enrollment, when the reconcilliation starts, it grabs all of the user records and enqueues all the enroll/unenroll events. While that reconcilliation is running, a student, ada, unenrolls from their course and the realtime event comes in and gets processed immediately. 3 minutes later, the enqueued enrollment job comes off the queue and ada is re-enrolled in their course… whoops!   &#x20;
+
+## API inneficiency and rate limiting&#x20;
+
+Imagine you have a new course registration window open up, a couple hundred people register in a few minutes, sweet! it all get's dealt with. 2 minutes later, the reconcilliation jobs run and immediately have to revalidate that those students, who we can logically assume are already registered, get jobs enqueued and we waste 3-4 API requests of our rate limit budget on verifying they're already enrolled.&#x20;
+
+This is a generous case. In practice, we were seeing huge waste in our reconcilliation jobs. Over 90% result in no action from the jobs, just extra load on the source and destination APIs for no added benefit. With production data it got to the point where big reconcillations would take over an hour to run… yikes.&#x20;
+
+##

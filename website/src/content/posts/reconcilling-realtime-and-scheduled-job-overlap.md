@@ -9,11 +9,13 @@ tags:
   - Redis
   - Workflows
 ---
+
+
 I worked on a pretty large scale realtime integration project at work recently and ran into a bit of an interesting problem. I figured I'd document my process in figuring it out for future reference here for future reference and as a way to internalize the learnings.&#x20;
 
 ## Some background
 
-For the sake of this example, let's imagine you work at a fictional online course platform that teaches people how to code. You've historically operated in person only but you just brought on a new online course platform, and you need to figure out how to get data out of your existing infrastructure into this new app.
+For the sake of this example, let's imagine you work at a fictional online course platform that teaches people how to code. You've historically operated in person only, but you just brought on a new online course platform, and you need to figure out how to get data out of your existing infrastructure into this new app.
 
 Your existing infrastructure, **your source system,** is mostly a single monolithic application that handles the majority of your business needs; it allows your users to edit their personal information, change their billing info, change their subscription tier, and buy individual things from your shop. Your staff set everything up in here and has been for years. The core system was built in the 90s, but there are some semi-modern tack-ons you can use, like a read-only API and a change event subscription system.&#x20;
 
@@ -198,9 +200,23 @@ const handleEnrollment = async (event: EnrollmentEvent, deps: JobDeps) => {
   const ttl = cache.generateTTL(ENROLLMENT_TTL_BASE, ENROLLMENT_TTL_JITTER);
   await cache.set({ key: cacheKey, value: eventTime, ttl });
   logger.info('job completed; record persisted in cache', { cacheKey });
+
+  // delete the lock key in the cache to release the lock
+  await cache.delete(lockKey);
 };
 ```
 
 One important thing to note with the "cache as a lock" pattern above: two jobs could technically both check for the lock at the same time, both find nothing, and both move on happily with their little lives
 
 We're using Redis for our cache and locking backend, which supports this natively via `SET NX` (set-if-not-exists). Our cache abstraction wraps this so that `cache.set` on a lock key is always atomic, meaning only one job will ever successfully acquire the lock. If it can't acquire the lock, it will wait (promise won't resolve) until it can or timeout and throw an error.&#x20;
+
+## The results
+
+After making these changes, we saw huge changes in our "large" reconciliation job times and our error rates, resulting in a much quicker sync in for dropped realtime events and a reduced support burden for our teams.&#x20;
+
+Some examples of improved metrics:
+
+* A full reconciliation job for enrollment went from taking around 30 minutes to run, down to an average of 78 seconds.&#x20;
+* We have received 0 tickets due to stale jobs and race conditions since shipping these changes to production.&#x20;
+* We no longer constantly bounce off the rate limiter in our connecting APIs, averaging around 60% usage during reconciliation windows.  &#x20;
+

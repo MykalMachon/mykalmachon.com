@@ -16,3 +16,5 @@ I've been building a set of guiding principles on my whiteboard at home and in t
 * Am I excited to get out of bed in the morning? Are the sheets light?
 
 These have evolved a lot over the years, but the core idea and the original question came from my uncle when I was probably around 19. He said that as long as I am working on tougher things than I was 6 months ago, I'll be okay. I used that as a guiding principle and added some extras as I got older and, hopefully, wiser.
+
+I've never shared these before, but I brought them up to someone recently, and they seemed to really like them, so I thought I would share them here, too.&#x20;

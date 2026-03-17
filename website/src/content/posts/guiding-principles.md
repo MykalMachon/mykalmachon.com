@@ -8,7 +8,7 @@ tags:
   - meta
   - goals
 ---
-I've been building a set of guiding principles on my whiteboard at home and in the notes app on my phone for a few years. The world's been a bit crazy both on a macro (look around) and micro (my son's turning 1, life moves on, AI rocks my career), so I've found myself thinking about these things pretty constantly in the last few months.
+I've been building a set of guiding principles on my whiteboard at home and in the notes app on my phone for a few years. The world's been a bit crazy both on a macro (look around) and micro (my son's turning 1, life moves on, AI shakes up my understanding of my skills), so I've found myself thinking about these things pretty constantly in the last few months.
 
 These have evolved a lot over the years, but the core idea and the original question came from my uncle when I was probably around 19. He said that as long as I am always working on tougher things than I was 6 months ago, I'll be okay. At the time, I took that to heart and used it as a guiding principle. Over the years, I've added on to the list as I got older and, hopefully, wiser.
 

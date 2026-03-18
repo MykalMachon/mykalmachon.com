@@ -1,7 +1,7 @@
 ---
 pubDate: 2026-03-17
 title: Guiding principles
-description: a few things I keep on my whiteboard that guide me
+description: some questions that I hope will lead me to a full life
 type: post
 draft: true
 tags:

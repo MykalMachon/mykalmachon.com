@@ -3,7 +3,7 @@ pubDate: 2026-03-17
 title: Guiding principles
 description: some questions that I hope will lead me to a full life
 type: post
-draft: true
+draft: false
 tags:
   - meta
   - goals

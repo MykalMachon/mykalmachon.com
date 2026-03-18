@@ -10,7 +10,7 @@ tags:
 ---
 At 19, I put a note in my wallet that read "If you're working on harder problems today than you were last year, then you'll be alright." It was a rough estimate of something my uncle had said to me that day that I wanted to remember. The quote stuck at the top of my mind for years, and as I've gotten older, I've picked up a few more pieces of knowledge. I reformulated them as questions and have come to think of them as my guiding principles.
 
-I've never shared these before, but I brought them up with someone the other day, and they were really interested, so I thought it was worth writing them up and sharing them.
+I've never shared these before, but I brought them up with someone the other day, and they were really interested. I thought that it was worth writing them up.
 
 ## My guiding principles
 

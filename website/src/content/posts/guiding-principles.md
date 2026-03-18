@@ -8,9 +8,9 @@ tags:
   - meta
   - goals
 ---
-I've been building up a set of guiding principles for around 8 years as a framework for decision-making and to replace long-term goals. I've never shared these before, but I brought them up to someone recently, and they seemed to really like them. With that in mind, I thought I would share them more publicly.&#x20;
+At 19, I put a note in my wallet that read "If you're working on harder problems today than you were last year, then you'll be alright." It was a rough estimate of something my uncle had said to me that day that I wanted to remember. The quote stuck at the top of my mind for years, and as I've gotten older, I've picked up a few more pieces of knowledge. I reformulated them as questions and have come to think of them as my guiding principles.
 
-These have evolved a lot over the years, but the core idea and the original question or "principle" came from my uncle when I was around 19. I don't remember the context, I do remember him saying that as long as I'm always working on tougher things than I was 6 months ago, I'll be okay. At the time, I took that to heart. Over the years, I've added some more principles to guide my decisions.
+I've never shared these before, but I brought them up with someone the other day, and they were really interested, so I thought it was worth writing them up and sharing them.
 
 ## My guiding principles
 
@@ -42,7 +42,7 @@ In return, I think it's only fair to hold the people around me to those same sta
 
 I actually added this one to the list recently. I got it from my dad when talking about a big personal decision I'm in the process of making. I thought it was a really strong daily check-in. Even more so than the other questions in my list. Every morning when I get up, is it easy to do so? Am I excited for the day? If the answer is no for 4-5 days, that's okay, but more than a month? more than a few months? It's time to identify the problem and make some ruthless changes to make the sheets light again.  &#x20;
 
-## Guiding principles over long-term goals&#x20;
+## Guiding principles over long-term goals
 
 As I've achieved big life goals, I've realized that while they can be a useful driving force, they oftentimes leave me feeling disappointed. When you're in the thick of it, all you can think about is the finish line, then when you get there, you get this free-fall feeling of "oh, I did it… Now what?" Not ideal, and maybe not worth the years of toil and stress for a day or two of satisfaction.
 
@@ -50,6 +50,6 @@ Another issue with long-term goals is that they're virtual and static targets in
 
 In both of these ways, long-term goals have failed to bring me much beyond a rough sense of direction.
 
-This is why I've come around on focusing on the principles above. They're short-term, actionable, and oriented around happiness, satisfaction, and kindness to those around you. They focus on what you can do right now to build momentum by putting yourself in situations that make your day-to-day life great. If I end my day knowing my answer to each of these questions is yes, I know I'm heading in the right direction- and that I had a good day.
+This is why I've been focusing on the principles above. They're short-term, actionable, and oriented around happiness, satisfaction, and kindness to those around you. They focus on what you can do right now to build momentum by putting yourself in situations that make your day-to-day life great. If I end my day knowing my answer to each of these questions is yes, I know I'm heading in the right direction- and that I had a good day.
 
 Part of the beauty here is that they're also a living set of principles. They can change as my priorities change, and unlike changing a goal, that change is guilt-free. &#x20;

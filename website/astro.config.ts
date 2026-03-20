@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from "@astrojs/react";
 import sitemap from '@astrojs/sitemap';
 import node from '@astrojs/node';
+import icon from 'astro-icon';
 
 import markdoc from '@astrojs/markdoc';
 import keystatic from '@keystatic/astro'
@@ -10,8 +11,8 @@ import keystatic from '@keystatic/astro'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://mykalmachon.com',
-  output: "hybrid",
-  integrations: [sitemap(), react(), markdoc(), keystatic()],
+  output: "server",
+  integrations: [sitemap(), react(), markdoc(), keystatic(), icon()],
   redirects: {
     '/garden/[...slug]': '/posts/[...slug]',
   },

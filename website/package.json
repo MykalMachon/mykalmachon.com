@@ -11,27 +11,29 @@
     "info": "astro info"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.11.5",
-    "@astrojs/node": "^8.3.4",
-    "@keystatic/astro": "^5.0.3",
-    "@keystatic/core": "^0.5.39",
-    "astro": "^4.16.8",
-    "astro-icon": "^0.8.1",
-    "markdown-it": "^13.0.2",
-    "minisearch": "^6.3.0",
-    "open-props": "^1.5.15",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-snowfall": "^1.2.1"
+    "@astrojs/markdoc": "^0.15.11",
+    "@astrojs/node": "^9.5.5",
+    "@iconify-json/ion": "^1.2.7",
+    "@iconify-json/mdi": "^1.2.3",
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.48",
+    "astro": "^5.18.1",
+    "astro-icon": "^1.1.5",
+    "markdown-it": "^14.1.1",
+    "minisearch": "^7.2.0",
+    "open-props": "^1.7.23",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-snowfall": "^2.4.0"
   },
   "devDependencies": {
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
-    "@types/markdown-it": "^13.0.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
+    "@types/markdown-it": "^14.1.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "reading-time": "^1.5.0",
-    "sanitize-html": "^2.11.0"
+    "sanitize-html": "^2.17.2"
   }
 }

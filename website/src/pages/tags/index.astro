@@ -19,7 +19,7 @@ const sortedTags = Object.entries(allTags).sort((a, b) => b[1] - a[1]);
         {sortedTags.map(([tag, count]) =>
         <li>
             <a href=`/tags/${tag}`>
-                <span class="tag-name">#{tag}</span>
+                #{tag}
                 <span class="tag-count">{count} posts</span>
             </a>
         </li>
@@ -83,12 +83,8 @@ const sortedTags = Object.entries(allTags).sort((a, b) => b[1] - a[1]);
             & li {
                 border-right: 1px solid var(--paper-3);
 
-                &:nth-child(-n+2) {
+                &:nth-child(2) {
                     border-top: none;
-                }
-
-                &:first-child {
-                    border-top: 1px solid var(--paper-3);
                 }
             }
         }

@@ -6,8 +6,6 @@ export const prerender = true;
 
 const allPosts = await getCollection("posts", (post) => !post.data.draft);
 const allTags: TagCount = getTagCount(allPosts);
-
-console.log(allTags);
 ---
 
 <Layout

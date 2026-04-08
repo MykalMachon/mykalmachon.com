@@ -5,8 +5,7 @@ description: Some CLI stuff I've been using lately.
 type: post
 draft: false
 tags: ['tech']
-  - cli
-  - devops
+
 ---
 I've noticed I'm spending more and more time with only a terminal open lately, with that, I've found quite a few handy little CLI apps, utilities, and even built setup a pretty shell theme.&#x20;
 

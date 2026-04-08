@@ -5,7 +5,7 @@ description: How to easily copy content from your WSL shell to your Windows clip
 type: post
 draft: false
 tags: ['tech']
-  - wsl
+
 ---
 Found a fun little hack today while trying to copy some test output from my Ubuntu WSL terminal into the Windows clipboard.&#x20;
 

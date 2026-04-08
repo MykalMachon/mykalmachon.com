@@ -4,9 +4,6 @@ description: I often use photos as notes even though I have a perfectly fine not
 pubDate: 2023-11-15
 draft: false
 tags: ['webdev', 'opinion']
-  - ux
-  - webdev
-  - personal
 location: A grocery store
 type: post
 stage: budding

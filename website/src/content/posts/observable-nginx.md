@@ -5,9 +5,7 @@ description: a gitops template for nginx with observability built in.
 type: post
 draft: true
 tags: ['devops']
-  - docker
-  - devops
-  - nginx
+
 ---
 This is a bit of a follow up to [my other post on testing NGINX configs locally](https://mykal.codes/posts/how-to-test-nginx-configs-locally). I'll expand on how I've been updating, testing, deploying, and monitoring our reverse proxies and static sites at work. I've actually been running this at work for around 6 months now but finally got around to simplifying the setup and open sourcing it!
 

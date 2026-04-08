@@ -5,8 +5,7 @@ description: automating setup of a windows machine via a dotfiles repo
 type: post
 draft: false
 tags: ['tech']
-  - devops
-  - windows
+
 ---
 I just setup a work laptop and and took the chance to look into what setting up a "dotfiles" for windows would look like. Specifically, what it would take to keep track of apps/tools that I'd need and automate the process of setup on Windows.
 

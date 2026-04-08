@@ -6,7 +6,6 @@ pubDate: 2022-08-24
 type: 'post'
 heroImage: '../../assets/posts/on-hydroponic-gardens.avif'
 tags: ['personal']
-  - personal
 draft: false
 ---
 

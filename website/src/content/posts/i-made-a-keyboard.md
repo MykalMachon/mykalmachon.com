@@ -5,8 +5,7 @@ description: I soldered up my first custom keyboard.
 type: post
 draft: true
 tags: ['tech', 'personal']
-  - zmk
-  - keyboards
+
 ---
 I built out a Corne v2 keyboard using a kit from [typeractive.xyz](https://typeractive.xyz).&#x20;
 

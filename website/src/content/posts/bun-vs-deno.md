@@ -5,10 +5,7 @@ description: "Bun and Deno seemed mostly the same to me, so I wrote this post to
 pubDate: 2023-09-11
 draft: false
 tags: ['tech']
-  - development
-  - javascript
-  - deno
-  - bun
+
 ---
 
 [Bun](https://bun.sh/) [v1.0](https://bun.sh/blog/bun-v1.0) just launched, and I've been very surprised by how hyped people seem to be with the release. [Deno](https://deno.com/) (currently on v1.36) has been around for quite awhile, has seen pretty heavy adoption in certain circles and by certain companies (especially in edge environments like with [Netlify Edge Functions](https://docs.netlify.com/edge-functions/overview/) and [Cloudflare Workers](https://workers.cloudflare.com/)).

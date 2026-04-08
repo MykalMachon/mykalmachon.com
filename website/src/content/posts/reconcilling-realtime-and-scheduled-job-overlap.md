@@ -5,9 +5,7 @@ description: a nerdy blog post about wrangling async workflows
 type: post
 draft: true
 tags: ['tech']
-  - Typescript
-  - Redis
-  - Workflows
+
 ---
 
 

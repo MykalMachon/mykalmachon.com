@@ -6,8 +6,6 @@ description: My cat, Ash, suddenly passed away this weekend. This post is in his
 pubDate: 2022-08-02
 heroImage: '../../assets/posts/the-adventures-of-ash.avif'
 tags: ['personal']
-  - personal
-  - cats
 draft: false
 ---
 

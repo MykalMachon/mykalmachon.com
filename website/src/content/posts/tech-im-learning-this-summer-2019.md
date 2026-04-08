@@ -6,8 +6,7 @@ description: 'The tech that I want to learn in the summer of 2019'
 pubDate: 2019-05-13
 draft: false
 tags: ['personal']
-  - 'personal'
-  - 'javascript'
+
 ---
 
 As of April 28th, 2019, I finished my third year at University! 🎉

@@ -5,10 +5,7 @@ description: "How I created an AI chat bot trained on my blog posts. It's easier
 pubDate: 2023-10-25
 draft: true
 tags: ['ai', 'tech']
-  - project
-  - development
-  - javascript
-  - python
+
 ---
 
 I made myself [a little "chatbot" (chat.mykal.codes)](https://chat.mykal.codes) that's trained off the content from my blog. Cool right? To be honest, it was a lot easier than I thought it would be. 

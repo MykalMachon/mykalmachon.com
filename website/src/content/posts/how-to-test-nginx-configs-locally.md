@@ -5,9 +5,7 @@ description: How I quickly validate NGINX configs locally via the /etc/hosts fil
 type: post
 draft: false
 tags: ['devops']
-  - devops
-  - webdev
-  - nginx
+
 ---
 I've been on a bit of a tear building out an NGINX reverse-proxy and web server repo at work complete with a whole bunch of goodies (automated testing, deploy, monitoring, and log aggregation, oh my!).
 

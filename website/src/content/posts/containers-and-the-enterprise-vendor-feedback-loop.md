@@ -5,8 +5,7 @@ description: Enterprise and Enterprise Vendor's both improve at a glacial pace; 
 pubDate: 2023-03-07
 draft: false
 tags: ['devops', 'opinion']
-  - docker
-  - enterprise
+
 ---
 
 I love containers. _I think they're cool_. Like any tech they have their issues[^1], but when done right enable automated deploys, self-repairing systems, and a direct programmatic "source of truth" interface for infrastructure. All of which can be a _huge_ asset in an organization with a significant number of server-based applications, jobs, daemons, and systems.

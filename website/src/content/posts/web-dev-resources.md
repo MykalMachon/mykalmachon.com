@@ -8,7 +8,7 @@ heroImage: '../../assets/posts/web-dev-resources.avif'
 draft: false
 
 tags: ['webdev']
-  - webdev
+
 ---
 
 I was talking with a friend yesterday about how I learned web dev.

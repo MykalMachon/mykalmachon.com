@@ -5,8 +5,7 @@ description: A comprehensive review of the reMarkable 2
 type: post
 draft: true
 tags: ['tech', 'personal']
-  - review
-  - notes
+
 ---
 I got a reMarkable 2 as a gift from my team at work after coming back from my paternity leave this year and have been using it for the past few months daily for note taking, sketching, and reading. If you haven't heard of a reMarkable before, [check out their product page for a quick summary](https://remarkable.com/store/remarkable-2). TLDR: It's a large format e-ink note-taking and reading device.  &#x20;
 

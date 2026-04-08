@@ -6,8 +6,7 @@ description: 'When you want to preview a hidden product/post on a hidden theme t
 pubDate: 2020-07-08
 draft: false
 tags: ['webdev']
-  - 'shopify'
-  - 'webdev'
+
 ---
 
 ## The Issue

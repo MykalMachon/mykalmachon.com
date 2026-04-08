@@ -5,8 +5,7 @@ description: Use this little trick to figure out why your containers won't start
 type: post
 draft: false
 tags: ['devops']
-  - devops
-  - docker
+
 ---
 I work with docker containers pretty much every day and debugging containers that crash immediately on startup has been a common headache for me. I came up with a little "hack" that has helped me with this problem so I thought I'd share it here.
 

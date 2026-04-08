@@ -6,6 +6,7 @@ export const prerender = true;
 
 const allPosts = await getCollection("posts", (post) => !post.data.draft);
 const allTags: TagCount = getTagCount(allPosts);
+const sortedTags = Object.entries(allTags).sort((a, b) => b[1] - a[1]);
 ---
 
 <Layout
@@ -14,25 +15,78 @@ const allTags: TagCount = getTagCount(allPosts);
 >
     <h1>Tags</h1>
     <p>Here's all the tags I've used across my posts.</p>
-    <div class="taglist">
-        {Object.entries(allTags).map(tag =>
-        <a href=`${import.meta.env.SITE}/tags/${tag[0]}` class="tag">{tag[0]} - {tag[1]} posts</a>
-        )
-    </div>
+    <ul class="taglist">
+        {sortedTags.map(([tag, count]) =>
+        <li>
+            <a href=`/tags/${tag}`>
+                #{tag}
+                <span class="tag-count">{count} posts</span>
+            </a>
+        </li>
+        )}
+    </ul>
 </Layout>
 
 <style>
     .taglist {
-        display: flex;
-        flex-direction: row;
-        gap: var(--size-3);
-        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin-top: var(--size-4);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
-        & .tag {
-            display: inline-flex;
-            padding: var(--size-2);
-            border: 1px solid white;
-            border-radius: 8px;
+        & li {
+            position: relative;
+            border-left: 1px solid var(--paper-3);
+            border-bottom: 1px solid var(--paper-3);
+            transition: background 0.2s ease;
+
+            &:nth-child(-n+2) {
+                border-top: 1px solid var(--paper-3);
+            }
+
+            &:nth-child(even) {
+                border-right: 1px solid var(--paper-3);
+            }
+
+            &:hover,
+            &:focus-within {
+                background: var(--paper-3);
+            }
+
+            & a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: var(--size-3) var(--size-4);
+                text-decoration: none;
+                color: var(--ink-1);
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+
+            & .tag-count {
+                font-size: var(--font-size-sm);
+                color: var(--ink-4);
+            }
+        }
+    }
+
+    @media screen and (max-width: 568px) {
+        .taglist {
+            grid-template-columns: 1fr;
+
+            & li {
+                border-right: 1px solid var(--paper-3);
+
+                &:nth-child(2) {
+                    border-top: none;
+                }
+            }
         }
     }
 </style>

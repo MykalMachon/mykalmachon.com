@@ -5,7 +5,7 @@ type: 'post'
 description: "Using native browser APIs to autosave HTML forms"
 pubDate: 2022-02-15
 heroImage: '../../assets/posts/autosave-forms.avif'
-tags: ["webdev"]
+tags: ['webdev']
 draft: false
 
 ---

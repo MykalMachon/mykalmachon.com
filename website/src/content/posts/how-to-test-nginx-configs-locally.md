@@ -4,7 +4,7 @@ title: How to test NGINX configs locally
 description: How I quickly validate NGINX configs locally via the /etc/hosts file.
 type: post
 draft: false
-tags:
+tags: ['devops']
   - devops
   - webdev
   - nginx

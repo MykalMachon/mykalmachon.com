@@ -5,7 +5,7 @@ type: 'post'
 description: 'When you want to preview a hidden product/post on a hidden theme things get tricky.'
 pubDate: 2020-07-08
 draft: false
-tags:
+tags: ['webdev']
   - 'shopify'
   - 'webdev'
 ---

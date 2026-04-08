@@ -4,8 +4,7 @@ description: Thank you, Dave Rupert.
 type: link
 pubDate: 2023-05-25
 draft: false
-tags:
-- webdev
+tags: ['webdev', 'opinion']
 url: https://daverupert.com/2023/05/markdown-images-anti-pattern/
 ---
 

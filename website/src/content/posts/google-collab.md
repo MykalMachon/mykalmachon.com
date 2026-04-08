@@ -4,6 +4,7 @@ type: 'link'
 pubDate: 2023-04-21
 draft: false
 url: https://colab.research.google.com/notebooks/intro.ipynb
+tags: ['ai']
 ---
 
 I was just reading through [Maggie Appleton's post on "Computational Notebooks"](https://maggieappleton.com/computational-notebooks)[^1], and came across Google Colab which provides free cloud compute for Jupyter Notebooks. The notebooks are just saved in your google drive account, and it's dead simple to get up and running. Just open the link above, click "file" then "new notebook" and you're off to the races.  

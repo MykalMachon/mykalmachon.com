@@ -3,7 +3,7 @@ title: 'No one owns their own video games anymore'
 description: 'Why I still buy physical media in 2023'
 type: 'note'
 pubDate: 2023-05-20
-tags:
+tags: ['opinion', 'personal']
   - personal
 draft: false
 ---

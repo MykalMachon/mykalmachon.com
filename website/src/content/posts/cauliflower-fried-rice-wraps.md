@@ -4,8 +4,7 @@ customSlug: cauliflower-fried-rice-wraps
 type: 'post'
 description: 'a 20-minute cauliflower rice recipe '
 pubDate: 2022-10-05
-tags:
-- recipes
+tags: ['food']
 draft: false
 
 ---

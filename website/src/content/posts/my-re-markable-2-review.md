@@ -4,7 +4,7 @@ title: My reMarkable 2 Review
 description: A comprehensive review of the reMarkable 2
 type: post
 draft: true
-tags:
+tags: ['tech', 'personal']
   - review
   - notes
 ---

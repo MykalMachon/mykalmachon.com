@@ -5,7 +5,7 @@ type: 'photo'
 draft: false
 pubDate: 2022-08-01
 location: "Home"
-tags:
+tags: ['personal']
   - 'personal'
   - 'cats'
 ---

@@ -7,7 +7,7 @@ pubDate: 2021-08-26
 heroImage: '../../assets/posts/web-dev-resources.avif'
 draft: false
 
-tags:
+tags: ['webdev']
   - webdev
 ---
 

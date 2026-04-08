@@ -3,10 +3,7 @@ title: "MDChat"
 description: "Building a Markdown reading, AI powered, chatbot"
 pubDate: 2024-01-01
 type: 'post'
-tags:
-- open-source
-- project
-- AI
+tags: ['ai', 'tech']
 draft: false
 ---
 

@@ -5,7 +5,7 @@ description: "I'm going to try growing some herbs and veggies inside with hydrop
 pubDate: 2022-08-24
 type: 'post'
 heroImage: '../../assets/posts/on-hydroponic-gardens.avif'
-tags:
+tags: ['personal']
   - personal
 draft: false
 ---

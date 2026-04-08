@@ -4,7 +4,7 @@ title: Bots on Bluesky
 description: 'Making bots on Bluesky is super easy! '
 type: post
 draft: false
-tags:
+tags: ['tech']
   - webdev
   - javascript
   - automation

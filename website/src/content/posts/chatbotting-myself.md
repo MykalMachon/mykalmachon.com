@@ -4,7 +4,7 @@ type: "note"
 description: "How I created an AI chat bot trained on my blog posts. It's easier than you'd think!"
 pubDate: 2023-10-25
 draft: true
-tags: 
+tags: ['ai', 'tech']
   - project
   - development
   - javascript

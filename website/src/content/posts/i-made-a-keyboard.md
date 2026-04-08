@@ -4,7 +4,7 @@ title: I made a keyboard!
 description: I soldered up my first custom keyboard.
 type: post
 draft: true
-tags:
+tags: ['tech', 'personal']
   - zmk
   - keyboards
 ---

@@ -4,7 +4,7 @@ title: 'Cool Tools: CLI Edition'
 description: Some CLI stuff I've been using lately.
 type: post
 draft: false
-tags:
+tags: ['tech']
   - cli
   - devops
 ---

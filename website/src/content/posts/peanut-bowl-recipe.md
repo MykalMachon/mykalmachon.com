@@ -4,7 +4,7 @@ type: 'note'
 description: 'A recipe for one of my favourite feel-good meals.'
 pubDate: 2023-01-28
 draft: false
-tags: ['recipe']
+tags: ['food']
 ---
 
 I've had a few friends ask for this recipe so thought I'd write it up on the blog. Commonly served after a hard day at work or when fighting off the cold; spice tends to clear out my sinuses.

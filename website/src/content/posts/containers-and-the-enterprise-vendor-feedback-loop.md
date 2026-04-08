@@ -4,7 +4,7 @@ type: 'post'
 description: Enterprise and Enterprise Vendor's both improve at a glacial pace; why?
 pubDate: 2023-03-07
 draft: false
-tags:
+tags: ['devops', 'opinion']
   - docker
   - enterprise
 ---

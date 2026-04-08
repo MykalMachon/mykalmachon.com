@@ -5,9 +5,7 @@ type: 'post'
 description: I asked Chat GPT-3 to write a short fantasy story about me braving the
   snow to get bagels.
 pubDate: 2022-12-20
-tags:
-- ai
-- personal
+tags: ['food', 'personal']
 draft: true
 
 ---

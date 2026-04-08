@@ -4,8 +4,7 @@ type: 'post'
 customSlug: internet-switch-up
 description: Things are changing fast and all at once on the internet.
 pubDate: 2022-10-30
-tags:
-- personal
+tags: ['opinion', 'personal']
 draft: false
 
 ---

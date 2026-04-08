@@ -4,7 +4,7 @@ description: easily delete all your old node_modules folders
 type: link
 pubDate: 2023-06-09
 draft: false
-tags: 
+tags: ['tech']
 - node
 - npm
 url: https://www.npmjs.com/package/npkill

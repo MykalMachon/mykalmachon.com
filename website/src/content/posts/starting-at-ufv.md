@@ -6,7 +6,7 @@ description: "Moving from web developer, to systems analyst"
 pubDate: 2021-05-10
 heroImage: '../../assets/posts/starting-at-ufv.avif'
 draft: false
-tags: ["personal"]
+tags: ['personal', 'career']
 ---
 
 I'm starting as a Systems Analyst at the [University of the Fraser Valley (UFV)!](https://ufv.ca) 🎉

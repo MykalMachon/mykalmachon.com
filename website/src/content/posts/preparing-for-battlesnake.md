@@ -6,7 +6,7 @@ pubDate: 2019-02-18
 type: 'post'
 heroImage: '../../assets/posts/preparing-for-battlesnake.avif'
 draft: false
-tags:
+tags: ['tech']
   - 'webdev'
 ---
 

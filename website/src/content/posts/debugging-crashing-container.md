@@ -4,7 +4,7 @@ title: Debugging Crashing Containers
 description: Use this little trick to figure out why your containers won't start
 type: post
 draft: false
-tags:
+tags: ['devops']
   - devops
   - docker
 ---

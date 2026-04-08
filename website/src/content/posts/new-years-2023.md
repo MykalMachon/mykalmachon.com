@@ -5,7 +5,7 @@ type: 'photo'
 draft: false
 pubDate: 2023-01-01
 location: 'Chilliwack, BC, Canada'
-tags:
+tags: ['personal']
   - 'personal'
   - 'party'
 ---

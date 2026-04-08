@@ -6,9 +6,7 @@ customSlug: ''
 type: note
 pubDate: 2023-03-26
 draft: false
-tags:
-- ai
-- thoughts
+tags: ['ai', 'opinion']
 stage: seed
 ---
 

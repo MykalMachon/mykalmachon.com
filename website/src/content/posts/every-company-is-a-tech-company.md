@@ -5,8 +5,7 @@ type: 'post'
 description: 'Tech is at the core of virtually every business and people would be
   better off to understand that. '
 pubDate: 2022-11-07
-tags:
-- business
+tags: ['opinion', 'career']
 draft: false
 
 ---

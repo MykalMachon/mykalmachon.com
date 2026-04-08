@@ -7,7 +7,7 @@ pubDate: 2022-01-01
 editDate: "2022-01-01"
 stage: 'seed'
 draft: false
-tags:
+tags: ['personal', 'opinion']
   - 'thoughts'
 ---
 

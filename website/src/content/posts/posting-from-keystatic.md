@@ -4,7 +4,7 @@ title: Posting from keystatic
 description: This is a post from the keystatic CMS!
 type: post
 draft: true
-tags:
+tags: ['webdev']
   - test
 ---
 ## This is a post from keystatic!

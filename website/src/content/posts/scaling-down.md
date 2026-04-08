@@ -6,7 +6,7 @@ description: "Why I'm scaling down my freelancing business, Tinybox"
 pubDate: 2021-05-01
 heroImage: '../../assets/posts/scaling-down.avif'
 draft: false
-tags: ["personal"]
+tags: ['personal', 'career']
 ---
 
 In May of 2019, during the first few months of the Coronavirus pandemic I made the decision to start an e-commerce / web development freelancing business, Tinybox Software Development.

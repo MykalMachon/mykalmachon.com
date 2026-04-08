@@ -3,10 +3,7 @@ title: Building /follows
 description: A page the highlights who's blogs I'm following
 type: post
 pubDate: 2024-03-29
-tags:
-- webdev
-- javascript
-- RSS
+tags: ['webdev']
 draft: false
 ---
 

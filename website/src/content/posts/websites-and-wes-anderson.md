@@ -6,8 +6,7 @@ description: maybe Wes Anderson films and websites have more in common than you'
   think.
 pubDate: 2022-12-05
 heroImage: '../../assets/posts/websites-and-wes-anderson.avif'
-tags:
-- webdev
+tags: ['webdev', 'opinion']
 draft: true
 
 ---

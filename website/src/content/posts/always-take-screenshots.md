@@ -4,8 +4,7 @@ customSlug: always-take-screenshots
 type: 'post'
 description: You can't depend on your work to live forever, take screenshots.
 pubDate: 2022-10-13
-tags:
-- webdev
+tags: ['webdev']
 draft: false
 
 ---

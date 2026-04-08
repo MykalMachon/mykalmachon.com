@@ -4,9 +4,7 @@ customSlug: aoc-2022-day-4
 type: 'post'
 description: My solution for advent-of-code day 4
 pubDate: 2022-12-05
-tags:
-- advent-of-code
-- python
+tags: ['tech']
 draft: false
 
 ---

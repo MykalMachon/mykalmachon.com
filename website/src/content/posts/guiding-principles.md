@@ -4,7 +4,7 @@ title: Guiding principles
 description: some questions that I hope will lead me to a full life
 type: post
 draft: false
-tags:
+tags: ['personal', 'opinion']
   - meta
   - goals
 ---

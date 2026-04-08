@@ -4,7 +4,7 @@ title: Observable Nginx
 description: a gitops template for nginx with observability built in.
 type: post
 draft: true
-tags:
+tags: ['devops']
   - docker
   - devops
   - nginx

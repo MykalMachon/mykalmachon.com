@@ -4,7 +4,7 @@ title: My first latte leaf
 description: It only took 2 years of casual practice!
 type: photo
 draft: false
-tags:
+tags: ['food', 'personal']
   - coffee
 location: the coffee bar
 ---

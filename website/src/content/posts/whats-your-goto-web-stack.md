@@ -6,7 +6,7 @@ description: "An exercise in exploring the stack I'm currently comfy with."
 pubDate: 2022-05-16
 heroImage: "../../assets/posts/whats-your-goto-web-stack.avif"
 draft: false
-tags: ["webdev"]
+tags: ['webdev']
 ---
 
 This post was inspired by [Andrew Walpole's "What's Your Go-To Web Stack" post](https://andrewwalpole.com/blog/whats-your-go-to-web-stack/). It seemed like a fun exercise, so I thought I’d give it a shot.

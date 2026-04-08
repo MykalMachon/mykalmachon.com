@@ -4,7 +4,7 @@ title: Setting up the 1Password CLI on WSL
 description: 1Password's CLI is great but their WSL docs aren't.
 type: post
 draft: false
-tags:
+tags: ['tech']
   - wsl
   - cli
   - devops

@@ -4,9 +4,7 @@ description: Need to edit files on your server? Just use VS Code.
 type: link
 pubDate: 2024-04-23
 draft: false
-tags:
-- webdev
-- devops
+tags: ['tech']
 url: https://code.visualstudio.com/docs/remote/ssh
 ---
 

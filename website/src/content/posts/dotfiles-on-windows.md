@@ -4,7 +4,7 @@ title: Dotfiles on windows
 description: automating setup of a windows machine via a dotfiles repo
 type: post
 draft: false
-tags:
+tags: ['tech']
   - devops
   - windows
 ---

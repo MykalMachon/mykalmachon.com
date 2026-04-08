@@ -4,7 +4,7 @@ title: Excerpt of David Foster Wallace interview from 1996
 description: Helluva quote
 type: link
 draft: false
-tags: []
+tags: ['personal']
 url: >-
   https://www.reddit.com/r/nosurf/comments/1lt55t3/excerpt_of_david_foster_wallace_interview_from/
 ---

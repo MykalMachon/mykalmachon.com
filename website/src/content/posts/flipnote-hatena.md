@@ -6,8 +6,7 @@ description: A friend of mine shared a Flipnote Hatena archive site that sent me
   a rabbit hole.
 pubDate: 2022-12-29
 heroImage: '../../assets/posts/flipnote-hatena.avif'
-tags:
-- personal
+tags: ['personal']
 draft: false
 
 ---

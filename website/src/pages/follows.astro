@@ -2,166 +2,149 @@
 // this makes it so it only builds this page once
 export const prerender = true;
 
-import crypto from 'node:crypto';
-import Layout from '@components/layout/Layout.astro';
+import crypto from "node:crypto";
+import Layout from "@components/layout/Layout.astro";
 
 // types for the fever data
 type FeedResponse = {
-  api_version: number;
-  auth: 0 | 1;
-  last_refreshed_on_time: number;
-  feeds: Feed[];
-  feed_groups: [
-    {
-      group_id: number;
-      feeds: string;
-    },
-  ];
+    api_version: number;
+    auth: 0 | 1;
+    last_refreshed_on_time: number;
+    feeds: Feed[];
+    feed_groups: [
+        {
+            group_id: number;
+            feeds: string;
+        },
+    ];
 };
 
 type FaviconResponse = {
-  api_version: number;
-  auth: 0 | 1;
-  last_refreshed_on_time: number;
-  favicons: Favicon[];
+    api_version: number;
+    auth: 0 | 1;
+    last_refreshed_on_time: number;
+    favicons: Favicon[];
 };
 
 type Feed = {
-  id: number;
-  favicon_id: number;
-  title: string;
-  url: string;
-  site_url: string;
-  is_spark: number;
-  last_updated_on_time: number;
+    id: number;
+    favicon_id: number;
+    title: string;
+    url: string;
+    site_url: string;
+    is_spark: number;
+    last_updated_on_time: number;
 };
 
 type Favicon = {
-  id: number;
-  data: string;
+    id: number;
+    data: string;
 };
 
 const username = import.meta.env.RSS_USERNAME;
 const apiKey = import.meta.env.RSS_API_KEY;
 const apiUrl = import.meta.env.RSS_API_URL;
 const authStr = `${username}:${apiKey}`;
-const authHash = crypto.createHash('md5').update(authStr).digest('hex');
+const authHash = crypto.createHash("md5").update(authStr).digest("hex");
 
 // get feeds api
 let feedData: FeedResponse | null = null;
 let faviconData: FaviconResponse | null = null;
 
 try {
-  const feedRes = fetch(`${apiUrl}?api_key=${authHash}&feeds`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  });
-  const faviconRes = fetch(`${apiUrl}?api_key=${authHash}&favicons`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  });
+    const feedRes = await fetch(`${apiUrl}?api_key=${authHash}&feeds`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+    });
 
-  const results = await Promise.allSettled([feedRes, faviconRes]);
+    // removing this to speed up terrible build times
+    // const faviconRes = fetch(`${apiUrl}?api_key=${authHash}&favicons`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/x-www-form-urlencoded",
+    //     },
+    // });
 
-  if (results[0].status === 'rejected' || results[1].status === 'rejected') {
-    throw new Error('failed to fetch feeds');
-  }
-
-  feedData = await results[0].value.json();
-  faviconData = await results[1].value.json();
+    feedData = await feedRes.json();
 } catch (err) {
-  console.error('failed to fetch feeds');
-  console.error(err);
+    console.error("failed to fetch feeds");
+    console.error(err);
 }
 
 // clean up the site_url to the domain without a path
 const cleanSiteUrl = (url: string) => {
-  try {
-    const urlObj = new URL(url);
-    return urlObj.origin;
-  } catch (err) {
-    return url;
-  }
+    try {
+        const urlObj = new URL(url);
+        return urlObj.origin;
+    } catch (err) {
+        return url;
+    }
 };
 ---
 
 <Layout title="Follows" description="the blogs I follow">
-  <h1>Follows</h1>
-  <p>
-    This page lists all of the blogs, newsletters, and peeps that I follow
-    across the internet in my RSS feed aggregator. I <a
-      href="/posts/building-slash-follows">wrote a post on how I built this</a
-    > if you're interested.
-  </p>
-  <ul>
-    {
-      feedData != null &&
-        faviconData != null &&
-        feedData.feeds.map((feed: Feed) => {
-          return (
-            <li>
-              <img
-                src={
-                  faviconData.favicons.find(({ id }) => id === feed.favicon_id)
-                    ?.data
-                }
-              />
-              <a href={cleanSiteUrl(feed.site_url)}>{feed.title}</a>
-            </li>
-          );
-        })
-    }
-  </ul>
+    <h1>Follows</h1>
+    <p>
+        This page lists all of the blogs, newsletters, and peeps that I follow
+        across the internet in my RSS feed aggregator. I <a
+            href="/posts/building-slash-follows"
+            >wrote a post on how I built this</a
+        > if you're interested.
+    </p>
+    <ul>
+        {
+            feedData != null &&
+                faviconData != null &&
+                feedData.feeds.map((feed: Feed) => {
+                    return (
+                        <li>
+                            <a href={cleanSiteUrl(feed.site_url)}>
+                                {feed.title}
+                            </a>
+                        </li>
+                    );
+                })
+        }
+    </ul>
 </Layout>
 
 <style>
-  ul {
-    display: grid;
-    list-style-type: none;
-    grid-template-columns: 1fr 1fr;
-    padding: 0;
-  }
-  @media screen and (max-width: 568px) {
     ul {
-      grid-template-columns: 1fr;
+        display: grid;
+        list-style-type: none;
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
     }
-  }
-  li {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--size-2);
-    padding: var(--size-1) var(--size-2);
-    transform-origin: center;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-left: 1px solid var(--paper-3);
-    transition:
-      transform 0.2s ease,
-      background 0.2s ease;
-  }
-  li:hover,
-  li:focus-within {
-    background: var(--paper-3);
-    transform: scale(1.05);
-    border: 1px solid var(--accent-1);
-    z-index: var(--layer-5);
-  }
-  li img {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-  }
-  li a:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+    @media screen and (max-width: 568px) {
+        ul {
+            grid-template-columns: 1fr;
+        }
+    }
+    li {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: var(--size-1) var(--size-2);
+        transform-origin: center;
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-left: 1px solid var(--paper-3);
+        transition: background 0.2s ease;
+    }
+    li:hover,
+    li:focus-within {
+        background: var(--paper-3);
+        border: 1px solid var(--accent-1);
+        z-index: var(--layer-5);
+    }
+    li a:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 </style>

@@ -4,7 +4,7 @@ export interface Props {
   description: string;
 }
 
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -84,4 +84,4 @@ import '@styles/main.css';
 <link rel="webmention" href="https://webmention.io/mykal.codes/webmention" />
 <link rel="pingback" href="https://webmention.io/mykal.codes/xmlrpc" />
 <!-- Astro view transitions -->
-<ViewTransitions />
+<ClientRouter />

@@ -1,35 +1,44 @@
 ---
-import Layout from '@components/layout/Layout.astro';
-import PostList from '@components/posts/PostList.astro';
-import { getCollection } from 'astro:content';
+import Layout from "@components/layout/Layout.astro";
+import PostList from "@components/posts/PostList.astro";
+import { getCollection } from "astro:content";
+
+import { type TagCount, getTagCount } from "@utils/tags";
 
 export const prerender = true;
 export async function getStaticPaths({}) {
-  let allPosts = await getCollection('posts');
+    let allPosts = await getCollection("posts", (post) => !post.data.draft);
+    if (allPosts.length === 0) return {};
 
-  const allTags = allPosts.map((post) => post.data.tags).flat();
-  const uniqueTags = [...new Set(allTags)].filter((tag) => tag !== undefined);
+    const allTags: TagCount = getTagCount(allPosts);
+    const uniqueTags = Object.keys(allTags).filter((tag) => tag !== undefined);
 
-  return uniqueTags.map((tag) => {
-    return {
-      params: { tag: tag },
-      props: { tag },
-    };
-  });
+    return uniqueTags.map((tag) => {
+        return {
+            params: { tag: tag },
+            props: { tag },
+        };
+    });
 }
 
 const { tag } = Astro.props;
 const tagPosts = await getCollection(
-  'posts',
-  (post) => post.data.tags && post.data.tags.includes(tag)
+    "posts",
+    (post) =>
+        // post has tags
+        post.data.tags &&
+        // post includes the tag we want
+        post.data.tags.includes(tag) &&
+        // post is not a draft
+        !post.data.draft,
 );
 ---
 
 <Layout
-  title={`#${tag} posts`}
-  description={`any page or post tagged with #${tag}`}
+    title={`#${tag} posts`}
+    description={`any page or post tagged with #${tag}`}
 >
-  <h1>#{tag}</h1>
-  <p>I have written {tagPosts.length} posts tagged with #{tag}.</p>
-  <PostList posts={tagPosts} />
+    <h1>#{tag}</h1>
+    <p>I have written {tagPosts.length} posts tagged with #{tag}.</p>
+    <PostList posts={tagPosts} />
 </Layout>

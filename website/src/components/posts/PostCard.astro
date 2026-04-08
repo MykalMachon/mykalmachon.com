@@ -10,7 +10,7 @@ const { post } = Astro.props;
 
 <article class="post-listing">
   <div class="title">
-    <p><a href={`/posts/${post.slug}`}>{post.data.title}</a></p>
+    <p><a href={`/posts/${post.id}`}>{post.data.title}</a></p>
   </div>
   <div class="category">
     <p>{post.data.type}</p>

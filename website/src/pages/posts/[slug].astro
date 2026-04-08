@@ -3,7 +3,7 @@ import Layout from '@components/layout/Layout.astro';
 import ResponsiveImage from '@components/layout/ResponsiveImage.astro';
 import PostAttributes from '@components/posts/PostAttributes.astro';
 import PostTOC from '@components/posts/PostTOC.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 export const prerender = true;
 export async function getStaticPaths({}) {
@@ -11,14 +11,14 @@ export async function getStaticPaths({}) {
 
   return allPosts.map((post) => {
     return {
-      params: { slug: post.slug },
+      params: { slug: post.id },
       props: { post },
     };
   });
 }
 
 const { post } = Astro.props;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 
 const hasSplitLayout = headings.length != 0;
 ---

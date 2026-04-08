@@ -1,31 +1,30 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
-import sitemap from '@astrojs/sitemap';
-import node from '@astrojs/node';
-import icon from 'astro-icon';
+import sitemap from "@astrojs/sitemap";
+import node from "@astrojs/node";
+import icon from "astro-icon";
 
-import markdoc from '@astrojs/markdoc';
-import keystatic from '@keystatic/astro'
+import markdoc from "@astrojs/markdoc";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mykalmachon.com',
+  site: "https://mykalmachon.com",
   output: "server",
-  integrations: [sitemap(), react(), markdoc(), keystatic(), icon()],
+  integrations: [sitemap(), react(), markdoc(), icon()],
   redirects: {
-    '/garden/[...slug]': '/posts/[...slug]',
+    "/garden/[...slug]": "/posts/[...slug]",
   },
   adapter: node({
-    mode: 'standalone',
+    mode: "standalone",
   }),
   build: {
-    inlineStylesheets: "auto"
+    inlineStylesheets: "auto",
   },
   markdown: {
     shikiConfig: {
-      theme: 'vitesse-dark',
-      wrap: false
-    }
+      theme: "vitesse-dark",
+      wrap: false,
+    },
   },
 });

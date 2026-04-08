@@ -1,151 +1,151 @@
 ---
-import Layout from '@components/layout/Layout.astro';
-import PostList from '@components/posts/PostList.astro';
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
+import Layout from "@components/layout/Layout.astro";
+import PostList from "@components/posts/PostList.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 export const prerender = true;
 
-import me from '../assets/me.png';
+import me from "../assets/me.png";
 
-const allPosts = await getCollection('posts', ({ data }) => {
-  return data.draft !== true;
+const allPosts = await getCollection("posts", ({ data }) => {
+    return data.draft !== true;
 });
 const recentPosts = allPosts
-  .sort((a, b) => {
-    // @ts-ignore
-    return new Date(b.data.pubDate) - new Date(a.data.pubDate);
-  })
-  .slice(0, 7);
+    .sort((a, b) => {
+        // @ts-ignore
+        return new Date(b.data.pubDate) - new Date(a.data.pubDate);
+    })
+    .slice(0, 7);
 ---
 
 <Layout title="Home" description="The home page of Mykal Machon!" type="home">
-  <header>
-    <div class="content">
-      <h1>Mykal Machon</h1>
-      <p>
-        Welcome to my personal website! I share posts, notes, photos, and more
-        here. Have fun exploring.
-      </p>
-    </div>
-  </header>
-  <main>
-    <section>
-      <h2>Latest post</h2>
-      <div class="post-callout">
-        <h3><strong>{recentPosts[0].data.title}</strong></h3>
-        <p>
-          <i
-            >{recentPosts[0].data.type} - {
-              recentPosts[0].data.pubDate.toDateString()
-            }</i
-          >
-        </p>
-        <p>{recentPosts[0].data.description}</p>
-        <p><a href={`/posts/${recentPosts[0].id}`}>Read more</a></p>
-      </div>
-    </section>
-    <section>
-      <h2>Other posts</h2>
-      <p>
-        I write about whatever I'm intersted in, which tends to include
-        programming, web development, tech, and other nerdy stuff.
-      </p>
-      <PostList
-        posts={recentPosts.slice(1, recentPosts.length)}
-        showArchiveLink={true}
-      />
-    </section>
-  </main>
+    <header>
+        <div class="content">
+            <h1>Mykal Machon</h1>
+            <p>
+                Welcome to my personal website! I share posts, notes, photos,
+                and more here. Have fun exploring.
+            </p>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Latest post</h2>
+            <div class="post-callout">
+                <h3><strong>{recentPosts[0].data.title}</strong></h3>
+                <p>
+                    <i
+                        >{recentPosts[0].data.type} - {
+                            recentPosts[0].data.pubDate.toDateString()
+                        }</i
+                    >
+                </p>
+                <p>{recentPosts[0].data.description}</p>
+                <p><a href={`/posts/${recentPosts[0].id}`}>Read more</a></p>
+            </div>
+        </section>
+        <section>
+            <h2>Other posts</h2>
+            <p>
+                I write about whatever I'm interested in, which tends to include
+                programming, web development, tech, and other nerdy stuff.
+            </p>
+            <PostList
+                posts={recentPosts.slice(1, recentPosts.length)}
+                showArchiveLink={true}
+            />
+        </section>
+    </main>
 </Layout>
 
 <style>
-  header {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: var(--size-6);
-    border-bottom: 1px solid var(--paper-3);
-    z-index: 1;
-  }
-
-  @media screen and (max-width: 1000px) {
     header {
-      grid-template-columns: 1fr;
-      gap: var(--size-3);
-    }
-  } 
-
-  .post-callout {
-    position: relative;
-    border: 1px solid var(--paper-3);
-    border-radius: var(--radius-2);
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-2);
-    padding: var(--size-3);
-    transition:
-      border-color 0.2s ease-out,
-      transform 0.3s var(--ease-out-3),
-      box-shadow 0.2s ease-out;
-  }
-
-  .post-callout:hover,
-  .post-callout:focus-within {
-    border-color: var(--accent-1);
-    transform: scale(1.02);
-    box-shadow:
-      var(--shadow-2),
-      0 1px 3px 0 var(--accent-2),
-      0 1px 2px -1px var(--accent-4);
-  }
-
-  .post-callout:hover a:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .post-callout > * {
-    margin: 0;
-  }
-
-  @media screen and (max-width: 60ch) {
-    header {
-      padding: var(--size-5) var(--size-3);
-      grid-template-columns: 1fr;
-      gap: var(--size-3);
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: var(--size-6);
+        border-bottom: 1px solid var(--paper-3);
+        z-index: 1;
     }
 
-    header h1 {
-      margin-top: 0;
+    @media screen and (max-width: 1000px) {
+        header {
+            grid-template-columns: 1fr;
+            gap: var(--size-3);
+        }
     }
 
-    header img {
-      max-width: 30vw;
-      aspect-ratio: 3.5/4;
+    .post-callout {
+        position: relative;
+        border: 1px solid var(--paper-3);
+        border-radius: var(--radius-2);
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-2);
+        padding: var(--size-3);
+        transition:
+            border-color 0.2s ease-out,
+            transform 0.3s var(--ease-out-3),
+            box-shadow 0.2s ease-out;
     }
-  }
 
-  ul {
-    width: 100%;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin: 0;
-    padding: 0;
-  }
+    .post-callout:hover,
+    .post-callout:focus-within {
+        border-color: var(--accent-1);
+        transform: scale(1.02);
+        box-shadow:
+            var(--shadow-2),
+            0 1px 3px 0 var(--accent-2),
+            0 1px 2px -1px var(--accent-4);
+    }
 
-  ul li {
-    display: inline-block;
-  }
+    .post-callout:hover a:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-  ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
+    .post-callout > * {
+        margin: 0;
+    }
+
+    @media screen and (max-width: 60ch) {
+        header {
+            padding: var(--size-5) var(--size-3);
+            grid-template-columns: 1fr;
+            gap: var(--size-3);
+        }
+
+        header h1 {
+            margin-top: 0;
+        }
+
+        header img {
+            max-width: 30vw;
+            aspect-ratio: 3.5/4;
+        }
+    }
+
+    ul {
+        width: 100%;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        display: inline-block;
+    }
+
+    ul li a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
 </style>

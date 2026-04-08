@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prestart": "astro build",
     "start": "node ./dist/server/entry.mjs",
     "build": "astro build",
     "format": "prettier --write .",

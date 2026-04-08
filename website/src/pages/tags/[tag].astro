@@ -32,6 +32,7 @@ const tagPosts = await getCollection(
         // post is not a draft
         !post.data.draft,
 );
+tagPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
 <Layout

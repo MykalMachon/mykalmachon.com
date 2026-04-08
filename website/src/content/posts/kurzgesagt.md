@@ -5,8 +5,7 @@ customSlug: ''
 type: link
 pubDate: 2023-03-28
 draft: false
-tags:
-- personal
+tags: ['personal']
 url: https://www.youtube.com/@kurzgesagt
 ---
 

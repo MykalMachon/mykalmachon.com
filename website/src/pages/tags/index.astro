@@ -1,12 +1,38 @@
 ---
-import Layout from '@components/layout/Layout.astro';
+import Layout from "@components/layout/Layout.astro";
+import { getTagCount, type TagCount } from "@utils/tags";
+import { getCollection } from "astro:content";
 export const prerender = true;
+
+const allPosts = await getCollection("posts", (post) => !post.data.draft);
+const allTags: TagCount = getTagCount(allPosts);
 ---
 
 <Layout
-  title="Tags"
-  description="Tags from the posts, links, photos, and notes on this site."
+    title="Tags"
+    description="Tags from the posts, links, photos, and notes on this site."
 >
-  <h1>Tags</h1>
-  <p>Here's all the tags I've used across my posts.</p>
+    <h1>Tags</h1>
+    <p>Here's all the tags I've used across my posts.</p>
+    <div class="taglist">
+        {Object.entries(allTags).map(tag =>
+        <a href=`${import.meta.env.SITE}/tags/${tag[0]}` class="tag">{tag[0]} - {tag[1]} posts</a>
+        )
+    </div>
 </Layout>
+
+<style>
+    .taglist {
+        display: flex;
+        flex-direction: row;
+        gap: var(--size-3);
+        flex-wrap: wrap;
+
+        & .tag {
+            display: inline-flex;
+            padding: var(--size-2);
+            border: 1px solid white;
+            border-radius: 8px;
+        }
+    }
+</style>

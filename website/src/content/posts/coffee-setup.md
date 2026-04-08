@@ -6,9 +6,7 @@ description: I've gotten into Coffee lately (cliché, I know) and wanted to summ
   my coffee setup.
 pubDate: 2022-05-10
 heroImage: '../../assets/posts/coffee-setup.avif'
-tags:
-- recipes
-- coffee
+tags: ['food']
 draft: false
 ---
 

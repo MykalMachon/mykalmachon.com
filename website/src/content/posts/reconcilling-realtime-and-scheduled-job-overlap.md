@@ -4,10 +4,8 @@ title: Reconcilling realtime and scheduled job overlap
 description: a nerdy blog post about wrangling async workflows
 type: post
 draft: true
-tags:
-  - Typescript
-  - Redis
-  - Workflows
+tags: ['tech']
+
 ---
 
 

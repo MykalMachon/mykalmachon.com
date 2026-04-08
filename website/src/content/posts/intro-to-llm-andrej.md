@@ -4,9 +4,7 @@ description: A great intro to LLMs by OpenAI's Andrej Karpathy
 type: link
 pubDate: 2023-11-23
 draft: false
-tags:
-- webdev
-- AI
+tags: ['ai']
 url: https://www.youtube.com/watch?v=zjkBMFhNj_g
 ---
 

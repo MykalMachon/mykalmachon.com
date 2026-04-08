@@ -5,9 +5,8 @@ type: 'photo'
 draft: false
 pubDate: 2023-01-01
 location: 'Chilliwack, BC, Canada'
-tags:
-  - 'personal'
-  - 'party'
+tags: ['personal']
+
 ---
 
 ![My wife Kiya and I](../../assets/posts/happy-new-years-2023.jpg)

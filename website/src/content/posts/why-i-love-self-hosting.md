@@ -6,9 +6,7 @@ description: A writeup on why I love self-hosting complete with drawbacks.
 pubDate: 2022-07-04
 heroImage: '../../assets/posts/why-i-love-self-hosting.avif'
 draft: false
-tags:
-- docker
-- self-hosting
+tags: ['devops']
 
 ---
 If you're unfamiliar with the term, I would define self-hosting as the practice of hosting your own server and services either in your home or place of business. People do this for an array of reasons (which we'll get into in this post). It's become increasingly popular over the last few years for enthusiasts, developers, and nerds, in general, to set up “homelabs” in their basements, under their desks and in their TV cabinets.

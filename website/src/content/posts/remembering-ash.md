@@ -5,9 +5,8 @@ type: 'photo'
 draft: false
 pubDate: 2022-08-01
 location: "Home"
-tags:
-  - 'personal'
-  - 'cats'
+tags: ['personal']
+
 ---
 
 ![A brown and black spotted bengal cat sitting in a cat tree. He stares up at the camera.](../../assets/posts/ash-in-hammock.jpg)

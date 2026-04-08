@@ -5,8 +5,7 @@ type: 'post'
 description: sometimes the only option is to do SSL manually. This article is for
   those times.
 pubDate: 2022-11-10
-tags:
-- scripts
+tags: ['devops']
 draft: false
 
 ---

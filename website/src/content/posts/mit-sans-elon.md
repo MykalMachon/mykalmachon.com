@@ -6,9 +6,7 @@ description: The MIT license, but Elon Musk and all of his companies are explici
 pubDate: 2022-11-15
 type: 'post'
 heroImage: '../../assets/posts/mit-sans-elon.avif'
-tags:
-- open-source
-- self-hosting
+tags: ['opinion']
 draft: false
 
 ---

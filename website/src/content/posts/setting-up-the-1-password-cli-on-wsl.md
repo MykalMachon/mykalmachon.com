@@ -4,10 +4,7 @@ title: Setting up the 1Password CLI on WSL
 description: 1Password's CLI is great but their WSL docs aren't.
 type: post
 draft: false
-tags:
-  - wsl
-  - cli
-  - devops
+tags: ['tech']
 location: the terminal
 ---
 I've been messing around with the 1Password developer tools and CLI and have found it extremely useful. However, I found the docs on the website regarding setting up the 1Password CLI in a WSL environment to be either incomplete or just non-existent so I wanted to throw together a guide on how I got everything working on my machine with Windows 11 and Ubuntu 24.01 LTS (Noble Numbat).

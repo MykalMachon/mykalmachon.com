@@ -5,9 +5,8 @@ customSlug: 'tech-im-learning-this-summer-2019'
 description: 'The tech that I want to learn in the summer of 2019'
 pubDate: 2019-05-13
 draft: false
-tags:
-  - 'personal'
-  - 'javascript'
+tags: ['personal']
+
 ---
 
 As of April 28th, 2019, I finished my third year at University! 🎉

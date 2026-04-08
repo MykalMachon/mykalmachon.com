@@ -13,7 +13,7 @@ const getAdditionalHTML = (post: CollectionEntry<'posts'>) => {
       out on <a href="https://indieweb.social/@mykalmachon">Mastodon</a>.
     </p>
     <p>
-      <a href="${import.meta.env.SITE}/posts/${post.slug}">
+      <a href="${import.meta.env.SITE}/posts/${post.id}">
         Read the full post on the site
       </a>
     </p>
@@ -27,7 +27,7 @@ const getPostData = async () => {
     title: post.data.title,
     description: `${parser.render(post.body).replace(/\n/g, '')} ${getAdditionalHTML(post)}`,
     pubDate: post.data.pubDate,
-    link: `${import.meta.env.SITE}/posts/${post.slug}`,
+    link: `${import.meta.env.SITE}/posts/${post.id}`,
   }));
   return allPostsSortedRss;
 }

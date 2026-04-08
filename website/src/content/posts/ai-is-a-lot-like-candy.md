@@ -3,8 +3,8 @@ pubDate: 2025-06-18
 title: AI is a lot like candy
 type: post
 draft: false
-tags:
-  - ai
+tags: ['ai', 'opinion']
+
 ---
 I just read [this article](https://time.com/7295195/ai-chatgpt-google-learning-school/) and the linked [MIT study](https://www.media.mit.edu/publications/your-brain-on-chatgpt/) (TLDR: people "using AI consistently underperformed at neural, linguistic, and behavioral levels" in testing) over my lunch break. It confirmed a thought I've been having quite often lately; we should probably think of AI a lot like we think of candy. *A nice sweet treat every once in a while, but not something that should make up the majority of your diet.*&#x20;
 

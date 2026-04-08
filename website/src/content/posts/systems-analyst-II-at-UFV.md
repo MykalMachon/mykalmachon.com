@@ -5,7 +5,7 @@ description: 'Moving on up as a Systems Analsyt 🎉'
 pubDate: 2023-05-21
 heroImage: '../../assets/posts/systems-analyst-II-at-UFV.avif'
 draft: false
-tags: ['personal']
+tags: ['personal', 'career']
 ---
 
 [I started as a Systems Analyst I at UFV on May 10th, 2021](/garden/posts/starting-at-ufv) and am stoked to be moving on up into a Systems Analyst II role as of May 17th, 2023.

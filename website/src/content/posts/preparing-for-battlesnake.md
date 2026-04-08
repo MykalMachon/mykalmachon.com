@@ -6,8 +6,8 @@ pubDate: 2019-02-18
 type: 'post'
 heroImage: '../../assets/posts/preparing-for-battlesnake.avif'
 draft: false
-tags:
-  - 'webdev'
+tags: ['tech']
+
 ---
 
 This year's Battlesnake competition takes place on March 2nd 2019 at the Victoria Convention Center and I've got quite a bit of preparation to do before then.

@@ -4,20 +4,19 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start:prod": "node ./dist/server/entry.mjs",
-    "start": "astro dev",
+    "prestart": "astro build",
+    "start": "node ./dist/server/entry.mjs",
     "build": "astro build",
-    "format": "deno fmt && prettier --write .",
-    "info": "astro info"
+    "format": "prettier --write .",
+    "astro:upgrade": "npx @astrojs/upgrade",
+    "astro:info": "astro info"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.15.11",
-    "@astrojs/node": "^9.5.5",
+    "@astrojs/markdoc": "^1.0.3",
+    "@astrojs/node": "^10.0.4",
     "@iconify-json/ion": "^1.2.7",
     "@iconify-json/mdi": "^1.2.3",
-    "@keystatic/astro": "^5.0.6",
-    "@keystatic/core": "^0.5.48",
-    "astro": "^5.18.1",
+    "astro": "^6.1.4",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.1",
     "minisearch": "^7.2.0",
@@ -27,9 +26,9 @@
     "react-snowfall": "^2.4.0"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.17",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/react": "^5.0.3",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
     "@types/markdown-it": "^14.1.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

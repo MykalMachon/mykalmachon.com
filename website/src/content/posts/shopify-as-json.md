@@ -6,7 +6,7 @@ description: "If you ever need to pull Shopify product info, this tip will be a 
 pubDate: 2022-07-19
 heroImage: '../../assets/posts/shopify-as-json.avif'
 draft: false
-tags: ["webdev", "shopify"]
+tags: ['webdev']
 ---
 
 I found out that you could get any Shopify product as JSON/XML way too late in my Shopify development game. If there is a public URL for the Shopify product, and the store is using the standard Shopify theme engine, you can grab all the public details as JSON at any time with a quick URL trick.

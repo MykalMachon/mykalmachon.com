@@ -4,9 +4,7 @@ type: 'post'
 customSlug: scheduled-python-jobs-on-linux-v-windows
 description: how to run scheduled python jobs on linux and windows
 pubDate: 2022-09-13
-tags:
-- devops
-- python
+tags: ['devops']
 draft: false
 
 ---

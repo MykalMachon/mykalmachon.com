@@ -4,8 +4,8 @@ pubDate: 2023-01-21
 type: 'photo'
 draft: false
 location: 'Abbotsford, BC'
-tags:
-  - 'coffee'
+tags: ['food']
+
 ---
 
 ![A picture of a beautiful cappuccino with leaf-like latte art sitting on wooden slatted table outside](../../assets/posts/good-cappuccinos.jpg)

@@ -4,7 +4,7 @@ title: Dither It!
 description: Make dithered images with this sweet lil web tool.
 type: link
 draft: false
-tags: []
+tags: ['tech']
 location: The Internet
 url: https://ditherit.com/
 ---

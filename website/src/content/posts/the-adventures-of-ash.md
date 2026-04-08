@@ -5,9 +5,7 @@ customSlug: the-adventures-of-ash
 description: My cat, Ash, suddenly passed away this weekend. This post is in his memory.
 pubDate: 2022-08-02
 heroImage: '../../assets/posts/the-adventures-of-ash.avif'
-tags:
-  - personal
-  - cats
+tags: ['personal']
 draft: false
 ---
 

@@ -6,9 +6,7 @@ description: 'docker images are relatively easy to get up and going, but can oft
 pubDate: 2022-07-25
 type: 'post'
 heroImage: '../../assets/posts/optimizing-docker-containers.avif'
-tags:
-- devops
-- docker
+tags: ['devops']
 draft: true
 
 ---

@@ -5,8 +5,7 @@ type: 'post'
 description: I've found that my nextcloud updates fail ~1/3 of the time. These steps
   usually save me.
 pubDate: 2022-12-13
-tags:
-- self-hosting
+tags: ['devops']
 draft: false
 
 ---

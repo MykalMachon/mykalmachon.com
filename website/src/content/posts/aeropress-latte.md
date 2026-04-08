@@ -4,9 +4,7 @@ type: 'post'
 description: An AeroPress Latte recipe for the AeroPress GO!
 pubDate: 2022-07-15
 heroImage: '../../assets/posts/aeropress-latte.avif'
-tags:
-- recipes
-- coffee
+tags: ['food']
 draft: false
 ---
 

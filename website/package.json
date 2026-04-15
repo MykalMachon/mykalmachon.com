@@ -15,7 +15,7 @@
     "@astrojs/node": "^10.0.4",
     "@iconify-json/ion": "^1.2.7",
     "@iconify-json/mdi": "^1.2.3",
-    "astro": "^6.1.4",
+    "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.1",
     "minisearch": "^7.2.0",

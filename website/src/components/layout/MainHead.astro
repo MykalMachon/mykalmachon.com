@@ -36,50 +36,16 @@ import '@styles/main.css';
 
 <!-- Mastodon verification -->
 <link rel="me" href="https://indieweb.social/@mykalmachon" />
-<!-- UMAMI Analytics -->
+<!-- Plausible Analytics -->
 {
   import.meta.env.MODE === 'production' && (
-    <script
-      async
-      defer
-      src="https://stats.machon.cloud/script.js"
-      data-website-id="9cc92a59-874f-425f-8dc3-ec11fa52a542"
-    />
+    <>
+      <script defer data-domain="mykalmachon.com" src="https://plausible-analytics-ce-production-1f9d.up.railway.app/js/script.tagged-events.js" />
+      <script>{'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }; document.addEventListener("astro:page-load", () => plausible("pageview"));'}</script>
+    </>
   )
 }
-<!-- Turnstile Analytics (made by me! hehe) -->
-{
-  import.meta.env.MODE === 'production' && (
-  <script type="text/javascript">
-  const sendPageView = async () => {
-    const response = await fetch('https://turnstile.mykal.codes/api/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        type: 'view',
-        referrer: document.referrer,
-        hostname: window.location.hostname,
-        screen: `${window.screen.width}x${window.screen.height}`,
-        pageTitle: document.title,
-        pageUrl: window.location.pathname,
-      }),
-    });
-    if (!response.ok) {
-      console.error('Failed to send page view to Turnstile Analytics');
-    }
-    const data = await response.json();
-    if (data.error) {
-      console.error('Failed to send page view to Turnstile Analytics');
-    }
-  };
 
-  // see https://docs.astro.build/en/guides/view-transitions/#astropage-load
-  document.addEventListener('astro:page-load', sendPageView);
-</script>
-  )
-}
 <!-- Web mentions -->
 <link rel="webmention" href="https://webmention.io/mykal.codes/webmention" />
 <link rel="pingback" href="https://webmention.io/mykal.codes/xmlrpc" />

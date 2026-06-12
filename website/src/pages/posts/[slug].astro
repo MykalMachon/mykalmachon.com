@@ -109,6 +109,13 @@ const hasSplitLayout = headings.length != 0;
     grid-template-columns: minmax(60ch, 2fr) 1fr;
   }
 
+  /* hero image is the first child of <main>; drop its top margin so it
+     lines up with the top of the content column. img comes from the
+     ResponsiveImage child component, hence :global(). */
+  main > :global(img:first-child) {
+    margin-top: 0;
+  }
+
   header {
     grid-column: 1 / -1;
     border-bottom: 1px solid var(--paper-4);

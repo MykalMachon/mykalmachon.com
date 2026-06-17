@@ -31,7 +31,7 @@ func redirectHandler(w http.ResponseWriter, r *http.Request) {
 		requestedURL = "https://" + r.Host + requestedURL
 	}
 
-	slog.Info(fmt.Sprintf("redirecting %s to %s", requestedURL, newURL),
+	slog.Info(fmt.Sprintf("🐸 redirecting %s to %s", requestedURL, newURL),
 		"ip", getClientIP(r),
 		"user_agent", r.Header.Get("User-Agent"),
 		"requested_url", requestedURL,
@@ -51,9 +51,9 @@ func main() {
 
 	http.HandleFunc("/", redirectHandler)
 
-	slog.Info("server starting", "port", port, "target", "https://mykalmachon.com")
+	slog.Info("🐸 server starting", "port", port, "target", "https://mykalmachon.com")
 
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
-		slog.Error("server failed to start", "error", err)
+		slog.Error("🐸 server failed to start", "error", err)
 	}
 }

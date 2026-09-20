@@ -166,6 +166,55 @@ a {
   color: var(--link);
 }
 
+.about-details {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.about-details details {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--code-background);
+}
+
+.about-details summary {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.about-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.about-details summary::after {
+  margin-left: auto;
+  content: '+';
+}
+
+.about-details details[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-details details[open] summary::after {
+  content: '−';
+}
+
+.about-details summary svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.about-details ul {
+  margin: 0;
+  padding: 0.75rem 2rem;
+}
+
 img,
 video,
 iframe {

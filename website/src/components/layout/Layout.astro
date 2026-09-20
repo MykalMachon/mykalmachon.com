@@ -9,7 +9,7 @@ export interface Props {
   type?: 'home' | 'page' | 'post';
 }
 
-const { title, description } = Astro.props;
+const { title, description, type = 'page' } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
     <MainHead title={title} description={description} />
   </head>
   <body>
-    <Navigation />
+    <Navigation variant={type} />
     <main>
       <slot />
     </main>

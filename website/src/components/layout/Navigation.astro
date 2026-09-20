@@ -1,16 +1,15 @@
 ---
-import { Icon } from 'astro-icon/components';
+export interface Props {
+  variant: 'home' | 'page' | 'post';
+}
+
+const { variant } = Astro.props;
 ---
 
 <header>
   <nav aria-label="Main navigation">
     <div class="site-identity">
-      <a href="/">Mykal Machon</a>
-      <button type="button" class="theme-toggle" data-theme-toggle>
-        <Icon name="mdi:weather-sunny" class="theme-icon theme-icon--light" aria-hidden="true" />
-        <Icon name="mdi:weather-night" class="theme-icon theme-icon--dark" aria-hidden="true" />
-        <span class="visually-hidden">Toggle theme</span>
-      </button>
+      {variant !== 'home' && <a class="site-title" href="/" transition:name="site-title">Mykal Machon</a>}
     </div>
     <ul>
       <li><a href="/posts">Posts</a></li>

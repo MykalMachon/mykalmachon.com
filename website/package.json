@@ -11,12 +11,12 @@
     "astro:info": "astro info"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^1.0.3",
-    "@astrojs/node": "^10.0.4",
+    "@astrojs/markdoc": "^2.0.9",
+    "@astrojs/node": "^11.1.6",
     "@iconify-json/ion": "^1.2.7",
     "@iconify-json/mdi": "^1.2.3",
-    "astro": "^6.1.6",
-    "astro-icon": "^1.1.5",
+    "astro": "^7.3.3",
+    "astro-icon": "^1.2.0",
     "markdown-it": "^14.1.1",
     "minisearch": "^7.2.0",
     "open-props": "^1.7.23",
@@ -25,9 +25,9 @@
     "react-snowfall": "^2.4.0"
   },
   "devDependencies": {
-    "@astrojs/react": "^5.0.3",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/react": "^6.0.6",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
     "@types/markdown-it": "^14.1.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

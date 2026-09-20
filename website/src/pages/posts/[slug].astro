@@ -18,7 +18,7 @@ const { Content, headings } = await render(post);
 <Layout title={post.data.title} description={post.data.description || ''} type="post">
   <article>
     <header>
-      {post.data.type == 'link' ? <h1><a href={post.data.url}>{post.data.title}</a></h1> : <h1>{post.data.title}</h1>}
+      {post.data.type == 'link' ? <h1 transition:name={`post-title-${post.id}`}><a href={post.data.url}>{post.data.title}</a></h1> : <h1 transition:name={`post-title-${post.id}`}>{post.data.title}</h1>}
       <p>{post.data.description}</p>
       <PostAttributes post={post} />
     </header>

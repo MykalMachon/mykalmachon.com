@@ -53,9 +53,24 @@ body {
   color: var(--text);
 }
 
-header,
+header {
+  margin: 0.75rem 0;
+}
+
 footer {
-  margin: 1.5rem 0;
+  margin: 2rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-meta p {
+  margin: 0;
 }
 
 .site-identity {
@@ -142,7 +157,7 @@ footer ul {
 }
 
 main {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 h1,
@@ -173,12 +188,15 @@ a {
 
 .about-details details {
   margin: 0;
+}
+
+details {
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: var(--code-background);
 }
 
-.about-details summary {
+details summary {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -188,29 +206,29 @@ a {
   list-style: none;
 }
 
-.about-details summary::-webkit-details-marker {
+details summary::-webkit-details-marker {
   display: none;
 }
 
-.about-details summary::after {
+details summary::after {
   margin-left: auto;
   content: '+';
 }
 
-.about-details details[open] summary {
+details[open] summary {
   border-bottom: 1px solid var(--border);
 }
 
-.about-details details[open] summary::after {
+details[open] summary::after {
   content: '−';
 }
 
-.about-details summary svg {
+details summary svg {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-.about-details ul {
+details ul {
   margin: 0;
   padding: 0.75rem 2rem;
 }
@@ -293,6 +311,20 @@ select {
 
 .post-listing p {
   margin-top: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 30rem) {
+  .post-listing__header {
+    display: block;
+  }
+
+  .post-listing time {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+  }
 }
 
 .command-palette {

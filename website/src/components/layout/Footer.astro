@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const year = new Date().getFullYear();
 ---
 
@@ -12,5 +14,12 @@ const year = new Date().getFullYear();
       <li><a href="https://www.linkedin.com/in/mykalmachon/">LinkedIn</a></li>
     </ul>
   </nav>
-  <p>{year} © Mykal Machon, Canada</p>
+  <div class="footer-meta">
+    <p>{year} © Mykal Machon, Canada</p>
+    <button type="button" class="theme-toggle" data-theme-toggle>
+      <Icon name="mdi:weather-sunny" class="theme-icon theme-icon--light" aria-hidden="true" />
+      <Icon name="mdi:weather-night" class="theme-icon theme-icon--dark" aria-hidden="true" />
+      <span class="visually-hidden">Toggle theme</span>
+    </button>
+  </div>
 </footer>

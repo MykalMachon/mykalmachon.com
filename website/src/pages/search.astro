@@ -2,7 +2,7 @@
 export const prerender = false;
 
 import Layout from '@components/layout/Layout.astro';
-import MiniSearch from 'minisearch';
+import { createPostSearch, type FeedPost } from '@utils/search';
 import SearchForm from '../components/search/SearchForm.astro';
 import SearchResult from '../components/search/SearchResult.astro';
 
@@ -26,29 +26,8 @@ if (Astro.request.method == 'GET'){
       if (!postsRes.ok){
         throw new Error('Could not fetch posts')
       }
-      // parse the list of posts as JSON 
-      const postData = await postsRes.json();
-
-      // format json data into flat objects 
-      const flatPostData = postData.map((post: any) => ({
-        id: post.id,
-        url: post.url,
-        title: post.meta.title,
-        date: post.meta.pubDate,
-        tags: post.meta.tags,
-        description: post.meta.description,
-        text: post.content.md
-      }))
-
-      // load data into search index 
-      const miniSearch = new MiniSearch({
-        fields: ['title', 'tags', 'description', 'text'],
-        storeFields: ['title', 'tags', 'description', 'date', 'url']
-      })
-
-      await miniSearch.addAllAsync(flatPostData);
-
-      results = miniSearch.search(query);
+      const postData: FeedPost[] = await postsRes.json();
+      results = createPostSearch(postData).search(query);
 
     } catch(err){
       if(err instanceof Error){

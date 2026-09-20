@@ -65,6 +65,15 @@ footer {
   width: 100%;
 }
 
+.nav-button {
+  padding: 0;
+  color: var(--link);
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .theme-toggle {
   display: inline-grid;
   width: 2rem;
@@ -199,5 +208,95 @@ select {
 .post-listing,
 .search-result {
   padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.command-palette {
+  position: fixed;
+  inset: 10vh auto auto 50%;
+  width: min(90vw, 42rem);
+  margin: 0;
+  transform: translateX(-50%);
+  max-height: min(70vh, 36rem);
+  padding: 0;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 30%);
+}
+
+.command-palette::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+.command-palette__form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.command-palette__form input {
+  width: 100%;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+
+.command-palette__form input:focus {
+  outline: 0;
+}
+
+.command-palette kbd {
+  padding: 0.125rem 0.25rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+}
+
+.command-palette__results {
+  max-height: 22rem;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+.command-palette__results button {
+  display: block;
+  width: 100%;
+  padding: 0.625rem;
+  text-align: left;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 0.25rem;
+}
+
+.command-palette__results button:hover,
+.command-palette__results button:focus-visible,
+.command-palette__results button.is-active {
+  background: var(--code-background);
+}
+
+.command-palette__results > p {
+  margin: 0;
+  padding: 0.625rem;
+}
+
+.command-palette__results span,
+.command-palette__results small {
+  display: block;
+}
+
+.command-palette__results small,
+.command-palette__hint {
+  color: var(--muted);
+}
+
+.command-palette__hint {
+  margin: 0;
+  padding: 0.75rem;
+  font-size: 0.875rem;
   border-top: 1px solid var(--border);
 }

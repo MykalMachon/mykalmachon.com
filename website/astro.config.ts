@@ -1,9 +1,7 @@
 import { defineConfig } from "astro/config";
 
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import node from "@astrojs/node";
-import icon from "astro-icon";
 
 import markdoc from "@astrojs/markdoc";
 
@@ -11,7 +9,7 @@ import markdoc from "@astrojs/markdoc";
 export default defineConfig({
   site: "https://mykalmachon.com",
   output: "server",
-  integrations: [sitemap(), react(), markdoc(), icon()],
+  integrations: [sitemap(), markdoc()],
   redirects: {
     "/garden/[...slug]": "/posts/[...slug]",
   },

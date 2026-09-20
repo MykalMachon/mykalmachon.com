@@ -2,9 +2,6 @@
 import type { CollectionEntry } from 'astro:content';
 import readingTime from 'reading-time';
 
-// pull icons from here https://icones.js.org/collection/ion
-import { Icon } from 'astro-icon/components';
-
 interface Props {
   post: CollectionEntry<'posts'>;
 }
@@ -13,83 +10,9 @@ const { post } = Astro.props;
 const rt = readingTime(post.body).text;
 ---
 
-<div class="post-attributes">
-  {
-    post.data.pubDate && (
-      <div class="post-attributes__item">
-        <Icon name="ion:calendar-outline" />
-        <time datetime={post.data.pubDate.toDateString()}>
-          {post.data.pubDate.toDateString()}
-        </time>
-      </div>
-    )
-  }
-  {
-    post.data.type != 'photo' && (
-      <div class="post-attributes__item">
-        <Icon name="ion:time-outline" />
-        <span>{rt}</span>
-      </div>
-    )
-  }
-  {
-    post.data.location && (
-      <div class="post-attributes__item">
-        <Icon name="ion:location-outline" />
-        <span>{post.data.location}</span>
-      </div>
-    )
-  }
-  {
-    post.data.tags && (
-      <a href="#tags" class="post-attributes__item">
-        <Icon name="ion:pricetag-outline" />
-        <span>{post.data.tags.length} tags</span>
-      </a>
-    )
-  }
+<div class="post-meta">
+  {post.data.pubDate && <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toDateString()}</time>}
+  {post.data.type != 'photo' && <span>{rt}</span>}
+  {post.data.location && <span>{post.data.location}</span>}
+  {post.data.tags && <a href="#tags">{post.data.tags.length} tags</a>}
 </div>
-
-<style>
-  :is(a, span, time) {
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-  }
-
-  @keyframes scale-attributes {
-    50% {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    100% {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-8px);
-      height: 0;
-      padding: 0;
-    }
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
-    color: var(--accent-2);
-  }
-
-  .post-attributes {
-    display: flex;
-    flex-direction: row;
-    gap: var(--size-3);
-    padding: var(--size-3) 0;
-    flex-wrap: wrap;
-  }
-
-  .post-attributes__item {
-    display: flex;
-    gap: var(--size-2);
-    align-items: center;
-    text-decoration: none;
-    color: var(--ink-3);
-  }
-</style>

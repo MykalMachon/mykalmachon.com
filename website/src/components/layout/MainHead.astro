@@ -4,13 +4,9 @@ export interface Props {
   description: string;
 }
 
-import { ClientRouter } from 'astro:transitions';
-
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// import styles
-import 'open-props/open-props.min.css';
 import '@styles/main.css';
 ---
 
@@ -20,34 +16,17 @@ import '@styles/main.css';
 <meta name="description" content={description} />
 <link rel="icon" type="image/svg" href="/favicon.svg" />
 <link rel="canonical" href={canonicalURL} />
-<!-- Google fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap"
-  rel="stylesheet"
-/>
 <link
   rel="alternate"
   type="application/rss+xml"
   title="The main RSS feed for mykal.codes"
   href="/feeds/main.xml"
 />
-
-<!-- Mastodon verification -->
 <link rel="me" href="https://indieweb.social/@mykalmachon" />
-<!-- Plausible Analytics -->
-{
-  import.meta.env.MODE === 'production' && (
-    <>
-      <script defer data-domain="mykalmachon.com" src="https://analytics.machon.cloud/js/script.tagged-events.js" />
-      <script>{'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }; document.addEventListener("astro:page-load", () => plausible("pageview"));'}</script>
-    </>
-  )
-}
-
-<!-- Web mentions -->
 <link rel="webmention" href="https://webmention.io/mykal.codes/webmention" />
 <link rel="pingback" href="https://webmention.io/mykal.codes/xmlrpc" />
-<!-- Astro view transitions -->
-<ClientRouter />
+{
+  import.meta.env.MODE === 'production' && (
+    <script defer data-domain="mykalmachon.com" src="https://analytics.machon.cloud/js/script.tagged-events.js" />
+  )
+}

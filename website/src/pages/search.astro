@@ -72,19 +72,12 @@ if (Astro.request.method == 'GET'){
   </section>}
 
   <section>
-    {results && <div class="results">
+    {results && <div>
       {results.length == 0 && <p>no results for {query}...</p>}
-      {results.length > 0 && <p class="result-count">Found {results.length} results in {searchTime} seconds for "{query}"</p>}
+      {results.length > 0 && <p>Found {results.length} results in {searchTime} seconds for "{query}"</p>}
       {results.map((result) => (
        <SearchResult result={result} />
       ))}  
     </div>}
   </section>
 </Layout>
-
-<style>
-  .results {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-</style>

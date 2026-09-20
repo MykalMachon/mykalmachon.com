@@ -8,7 +8,7 @@ export interface Props {
   type?: 'home' | 'page' | 'post';
 }
 
-const { title, description, type = 'page' } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,16 +17,10 @@ const { title, description, type = 'page' } = Astro.props;
     <MainHead title={title} description={description} />
   </head>
   <body>
-    <Navigation variant={type} />
-    <div class="wrapper">
-      <div class={`container container--${type}`}>
-        <slot />
-      </div>
-      <Footer />
-    </div>
-  </body><style>
-    body > .wrapper > div:first-child {
-      margin-bottom: var(--size-6);
-    }
-  </style>
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

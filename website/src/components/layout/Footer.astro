@@ -1,82 +1,16 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 const year = new Date().getFullYear();
 ---
 
-<footer class="container">
-	<section class="top">
-		<ul class="links__onsite">
-			<li><a href="/">Home</a></li>
-			<li><a href="/posts">Posts</a></li>
-			<li><a href="/about-me">About</a></li>
-			<li><a href="/links">Links</a></li>
-			<li><a href="/feeds"> Feeds</a></li>
-		</ul>
-		<ul class="links__offsite">
-			<li><a href="https://github.com/MykalMachon">GitHub</a></li>
-			<li><a href="https://bsky.app/profile/mykal.codes/">Bluesky</a></li>
-			<li><a href="https://www.linkedin.com/in/mykalmachon/">Linkedin</a></li>
-		</ul>
-	</section>
-	<section class="bottom">
-		<div class="location"><p>Canada</p></div>
-		<div class="copyright"><p>{year} ©️ Mykal Machon</p></div>
-	</section>
+<footer>
+  <nav aria-label="Footer navigation">
+    <ul>
+      <li><a href="/feeds">Feeds</a></li>
+      <li><a href="/follows">Follows</a></li>
+      <li><a href="https://github.com/MykalMachon">GitHub</a></li>
+      <li><a href="https://bsky.app/profile/mykal.codes/">Bluesky</a></li>
+      <li><a href="https://www.linkedin.com/in/mykalmachon/">LinkedIn</a></li>
+    </ul>
+  </nav>
+  <p>{year} © Mykal Machon, Canada</p>
 </footer>
-
-<style>
-	footer {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-	}
-
-	section:first-of-type {
-		border-top: 1px solid var(--paper-3);
-		padding-top: var(--size-3);
-	}
-
-	section:last-of-type {
-		padding-bottom: var(--size-3);
-	}
-
-	section ul {
-		display: flex;
-		gap: var(--size-3);
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	section ul li a {
-		font-size: var(--font-size-sm);
-		text-decoration: none;
-	}
-
-	section ul li a:hover {
-		text-decoration: underline;
-	}
-
-	section div p {
-		font-size: var(--font-size-sm);
-		margin: 0;
-	}
-
-	section {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	@media screen and (max-width: 768px) {
-		footer {
-			gap: var(--size-2);
-		}
-
-		section {
-			flex-direction: column;
-			gap: var(--size-2);
-		}
-	}
-</style>

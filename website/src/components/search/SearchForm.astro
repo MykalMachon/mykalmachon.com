@@ -8,14 +8,7 @@ const site = import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site;
 ---
 
 <form method="GET" action={`${site}search`}>
-  <input type="text" name="query" id="query" placeholder="Docker, Front-End, Coffee..." value={query}>
+  <label for="query">Search posts</label>
+  <input type="text" name="query" id="query" placeholder="Docker, Front-End, Coffee..." value={query} />
   <button type="submit">Search</button>
 </form>
-
-<style>
-  form {
-    display: grid;
-    grid-template-columns: 3fr auto;
-    gap: var(--size-3);
-  }
-</style>

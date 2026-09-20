@@ -11,24 +11,5 @@ const { toc } = Astro.props;
 ---
 
 <ul>
-  {
-    toc.map(({ depth, slug, text }) => {
-      return (
-        <li style={{ paddingLeft: `calc(var(--size-2) * ${(depth - 2) * 2}` }}>
-          <a href={`#${slug}`}>{text}</a>
-        </li>
-      );
-    })
-  }
+  {toc.map(({ slug, text }) => <li><a href={`#${slug}`}>{text}</a></li>)}
 </ul>
-
-<style>
-  li, a {
-    font-size: var(--font-size-sm);
-  }
-  @media screen and (max-width: 950px) {
-    li, a {
-      font-size: var(--font-size-base);
-    }
-  }
-</style>

@@ -6,210 +6,41 @@ import PostTOC from '@components/posts/PostTOC.astro';
 import { getCollection, render } from 'astro:content';
 
 export const prerender = true;
-export async function getStaticPaths({}) {
-  let allPosts = await getCollection('posts');
-
-  return allPosts.map((post) => {
-    return {
-      params: { slug: post.id },
-      props: { post },
-    };
-  });
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  return allPosts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
-
-const hasSplitLayout = headings.length != 0;
 ---
 
-<Layout title={post.data.title} description={post.data.description || ''}>
-  <div class={`post-layout ${hasSplitLayout ? 'post-layout--split' : ''}`}>
-    <header class="post-header">
-      {
-        post.data.type == 'link' ? (
-          <h1>
-            <a href={post.data.url}>{post.data.title}</a> 🔗
-          </h1>
-        ) : (
-          <h1>{post.data.title}</h1>
-        )
-      }
-      <p class="byline">{post.data.description}</p>
+<Layout title={post.data.title} description={post.data.description || ''} type="post">
+  <article>
+    <header>
+      {post.data.type == 'link' ? <h1><a href={post.data.url}>{post.data.title}</a></h1> : <h1>{post.data.title}</h1>}
+      <p>{post.data.description}</p>
       <PostAttributes post={post} />
     </header>
-    <main>
-      {
-        post.data.heroImage ? (
-          <ResponsiveImage
-            src={post.data.heroImage}
-            alt=""
-            sizes={[400, 700, 900]}
-            format="avif"
-          />
-        ) : null
-      }
-      <Content />
-    </main>
-    <aside>
-      {
-        headings.length != 0 ? (
-          <section class="post-toc">
-            <details>
-              <summary>Table of contents</summary>
-              <PostTOC toc={headings} />
-            </details>
-          </section>
-        ) : null
-      }
-    </aside>
-    <footer>
-      {
-        post.data.tags && post.data.tags.length != 0 ? (
-          <section id="tags" class="post-tags">
-            <ul>
-              {post.data.tags.map((tag: string) => (
-                <li>
-                  <a href={`/tags/${tag}`}>#{tag}</a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null
-      }
-    </footer>
-  </div>
+
+    {post.data.heroImage && <ResponsiveImage src={post.data.heroImage} alt="" sizes={[400, 700, 900]} format="avif" />}
+
+    {headings.length > 0 && (
+      <details>
+        <summary>Table of contents</summary>
+        <PostTOC toc={headings} />
+      </details>
+    )}
+
+    <Content />
+
+    {post.data.tags && post.data.tags.length > 0 && (
+      <footer id="tags" class="post-tags">
+        <h2>Tags</h2>
+        <ul>
+          {post.data.tags.map((tag: string) => <li><a href={`/tags/${tag}`}>#{tag}</a></li>)}
+        </ul>
+      </footer>
+    )}
+  </article>
 </Layout>
-
-<style>
-  @keyframes scale-h1 {
-    to {
-      font-size: var(--font-size-base);
-      margin-top: var(--size-3);
-      margin-bottom: var(--size-1);
-    }
-  }
-
-  @keyframes scale-byline {
-    to {
-      font-size: var(--font-size-sm);
-      margin: var(--size-3) 0;
-    }
-  }
-
-  .post-layout {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--size-4);
-  }
-
-
-  .post-layout.post-layout--split {
-    grid-template-columns: minmax(60ch, 2fr) 1fr;
-  }
-
-  /* hero image is the first child of <main>; drop its top margin so it
-     lines up with the top of the content column. img comes from the
-     ResponsiveImage child component, hence :global(). */
-  main > :global(img:first-child) {
-    margin-top: 0;
-  }
-
-  header {
-    grid-column: 1 / -1;
-    border-bottom: 1px solid var(--paper-4);
-  }
-
-  header section.post-tags {
-    margin-top: var(--size-6);
-  }
-
-  header .byline {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-md);
-    color: var(--ink-3);
-  }
-
-  aside {
-    position: sticky;
-    top: var(--size-3);
-    height: fit-content;
-  }
-
-  aside section h2 {
-    font-size: var(--font-size-base);
-    margin: 0;
-    padding: var(--size-4) 0;
-    margin-bottom: var(--size-4);
-    border-bottom: 1px solid var(--paper-4);
-  }
-
-
-  .post-tags ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: var(--size-2);
-  }
-
-  .post-tags ul li {
-    padding: 0 var(--size-1);
-    background: var(--paper-2);
-    border: 1px solid var(--paper-4);
-    border-radius: var(--radius-2);
-  }
-
-  .post-tags ul li a {
-    font-size: var(--font-size-sm);
-    color: var(--color-1);
-  }
-
-  footer {
-    grid-column: 1 / -1;
-    /* border-top: 1px solid var(--paper-4); */
-  }
-
-  @media screen and (max-width: 950px) {
-    header {
-      grid-area: header;
-    }
-    main {
-      grid-area: main;
-    }
-    aside {
-      grid-area: aside;
-    }
-
-    aside {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--size-4);
-    }
-
-    aside section h2 {
-      padding: var(--size-4) 0;
-      padding-top: 0;
-    }
-
-    .post-tags ul li a {
-      font-size: var(--font-size-base);
-    }
-
-    .post-layout,
-    .post-layout.post-layout--split {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        'header'
-        'aside'
-        'main';
-    }
-    aside {
-      position: relative;
-      top: auto;
-      height: auto;
-    }
-  }
-</style>

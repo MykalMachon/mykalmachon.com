@@ -3,60 +3,17 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
   post: CollectionEntry<'posts'>;
+  showDescription?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, showDescription = false } = Astro.props;
+const formattedDate = post.data.pubDate.toISOString().slice(0, 10);
 ---
 
 <article class="post-listing">
-  <div class="title">
-    <p><a href={`/posts/${post.id}`}>{post.data.title}</a></p>
+  <div class="post-listing__header">
+    <h3><a href={`/posts/${post.id}`}>{post.data.title}</a></h3>
+    <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
   </div>
-  <div class="category">
-    <p>{post.data.type}</p>
-  </div>
-  <div class="date">
-    <p>{post.data.pubDate.toDateString()}</p>
-  </div>
+  {showDescription && <p>{post.data.description}</p>}
 </article>
-
-<style>
-  article.post-listing {
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
-    gap: var(--size-3);
-    border-top: 1px solid var(--paper-3);
-    padding: var(--size-3) var(--size-1);
-  }
-
-  article.post-listing:last-of-type {
-    border-bottom: 1px solid var(--paper-4);
-  }
-
-  article.post-listing p {
-    margin: 0;
-  }
-
-  article.post-listing .category p {
-    font-style: italic;
-    font-size: var(--font-size-sm);
-    color: var(--ink-4);
-    font-family: var(--font-heading);
-  }
-
-  @media screen and (max-width: 100ch) {
-    article.post-listing {
-      grid-template-columns: 1fr auto;
-      gap: var(--size-1);
-      padding: var(--size-2) var(--size-1);
-    }
-  }
-
-  @media screen and (max-width: 50ch) {
-    article.post-listing {
-      grid-template-columns: 1fr;
-      gap: var(--size-1);
-      padding: var(--size-2) var(--size-1);
-    }
-  }
-</style>

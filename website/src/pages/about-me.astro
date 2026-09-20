@@ -1,5 +1,6 @@
 ---
 import Layout from '@components/layout/Layout.astro';
+import { Icon } from 'astro-icon/components';
 export const prerender = true;
 ---
 
@@ -37,13 +38,16 @@ export const prerender = true;
     services but I'm most up-to-date with the following:
   </p>
 
-  <div class="details-list">
+  <div class="about-details">
     <details>
-      <summary>🗣️ Languages & runtimes</summary>
+      <summary><Icon name="mdi:code-tags" aria-hidden="true" /> Languages & runtimes</summary>
       <ul>
         <li><strong>HTML / CSS / JS</strong>: good old web primitives.</li>
         <li>
           <strong>Typescript</strong>: can't get much better than JS with types.
+        </li>
+        <li>
+          <strong>Go</strong>: for simple, fast services and command-line tools.
         </li>
         <li>
           <strong>Node.js</strong>: for web servers, job runners, desktop apps,
@@ -57,11 +61,10 @@ export const prerender = true;
     </details>
 
     <details>
-      <summary>⚒️ Tools and libraries</summary>
+      <summary><Icon name="mdi:tools" aria-hidden="true" /> Tools and libraries</summary>
       <ul>
         <li>
-          <strong>Svelte & Sveltekit</strong>: my favourite way to build
-          fullstack applications.
+          <strong>React</strong>: for building interactive web applications.
         </li>
         <li>
           <strong>Flask</strong>: the most flexible way to write web stuff with
@@ -72,7 +75,8 @@ export const prerender = true;
           deploys trivial.
         </li>
         <li>
-          <strong>Prisma</strong>: my go-to ORM for node.js-based projects.
+          <strong>Drizzle Kit</strong>: for managing database schemas and
+          migrations.
         </li>
         <li>
           <strong>SQLAlchemy</strong>: my go-to ORM for python-based projects.
@@ -81,23 +85,14 @@ export const prerender = true;
     </details>
 
     <details>
-      <summary>☁️ Hosting and DevOps</summary>
+      <summary><Icon name="mdi:cloud-outline" aria-hidden="true" /> Hosting and DevOps</summary>
       <ul>
         <li>
-          <strong>Railway</strong>: for hosting full-fat applications, and
-          databases in the cloud.
+          <strong>Railway</strong>: for everything I run in the cloud.
         </li>
         <li>
           <strong>GitHub</strong>: the defacto hosted version control and CI/CD
           pipeline.
-        </li>
-        <li>
-          <strong>Netlify</strong>: for hosting static websites and web apps in
-          the cloud.
-        </li>
-        <li>
-          <strong>Azure</strong>: I have my AZ-900 and am working on my AZ-204
-          cert currently.
         </li>
       </ul>
     </details>
@@ -110,7 +105,10 @@ export const prerender = true;
       projects.
     </li>
     <li>
-      <a href="https://bsky.app/profile/mykal.codes/">Bluesky</a>: for small
+      <a href="https://x.com/mykalmachon">X</a>: for updates and thoughts.
+    </li>
+    <li>
+      <a href="https://bsky.app/profile/mykalmachon.com">Bluesky</a>: for small
       posts and rants about stuff.
     </li>
     <li>
@@ -120,17 +118,3 @@ export const prerender = true;
     <li><a href="/feeds">RSS Feed</a>: Subscribe to updates on this blog</li>
   </ul>
 </Layout>
-
-<style>
-  .details-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: var(--size-3);
-  }
-
-  .details-list > details {
-    width: 100%;
-  }
-</style>

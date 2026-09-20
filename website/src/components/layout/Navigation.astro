@@ -1,110 +1,21 @@
 ---
 import { Icon } from 'astro-icon/components';
-import SnowFallHeader from '../../components/fun/SnowFallHeader.tsx';
-
-export interface Props {
-  variant: 'home' | 'page' | 'post';
-}
-
-const { variant } = Astro.props;
 ---
 
-<div class="snowfall">
-  <SnowFallHeader client:only="react" transition:persist />
-</div>
-<nav>
-  <div class="container">
-    <p class="brandmark">
-      {variant != 'home' && <a href="/">Mykal Machon</a>}
-    </p>
+<header>
+  <nav aria-label="Main navigation">
+    <div class="site-identity">
+      <a href="/">Mykal Machon</a>
+      <button type="button" class="theme-toggle" data-theme-toggle>
+        <Icon name="mdi:weather-sunny" class="theme-icon theme-icon--light" aria-hidden="true" />
+        <Icon name="mdi:weather-night" class="theme-icon theme-icon--dark" aria-hidden="true" />
+        <span class="visually-hidden">Toggle theme</span>
+      </button>
+    </div>
     <ul>
-      <li>
-        <a href="/posts"> Posts</a>
-      </li>
+      <li><a href="/posts">Posts</a></li>
       <li><a href="/about-me">About</a></li>
-      <li>
-        <a href="/search" aria-label="Search" title="Search">
-          <Icon name="mdi:search" size="24" />
-          <span class="sr-only">Search</span>
-        </a>
-      </li>
+      <li><button type="button" class="nav-button" data-command-palette-trigger aria-haspopup="dialog">Search</button></li>
     </ul>
-  </div>
-</nav>
-
-<style>
-  .snowfall {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20vh;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .snowfall:after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--paper-2));    
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .snowfall {
-      display: none;
-    }
-  }
-
-  p.brandmark {
-    margin: 0;
-    padding: var(--size-2) var(--size-2) var(--size-2) 0;
-    font-family: var(--font-heading);
-    font-weight: bold;
-  }
-
-  p.brandmark a {
-    color: var(--ink-1);
-  }
-
-  nav {
-    display: flex;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  nav div.container {
-    width: 100%;
-    padding: var(--size-2) var(--size-3);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border-bottom: 1px solid var(--paper-3);
-  }
-
-  nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    padding: 0;
-    gap: var(--size-2);
-  }
-
-  nav ul li {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--size-2);
-  }
-
-  nav ul li a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
+  </nav>
+</header>

@@ -5,13 +5,14 @@ import PostCard from './PostCard.astro';
 export interface Props {
   posts: Array<CollectionEntry<'posts'>>;
   showArchiveLink?: boolean;
+  showDescriptions?: boolean;
 }
 
-const { posts, showArchiveLink = false } = Astro.props;
+const { posts, showArchiveLink = false, showDescriptions = false } = Astro.props;
 ---
 
 <section class="posts">
-  {posts.map((post) => <PostCard post={post} />)}
+  {posts.map((post) => <PostCard post={post} showDescription={showDescriptions} />)}
   {
     showArchiveLink ? (
       <p>

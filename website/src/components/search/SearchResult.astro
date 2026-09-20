@@ -5,42 +5,10 @@ interface Props {
   result: SearchResult;
 }
 
-const { result: {title, description, url, tags} } = Astro.props;
+const { result: { title, description, url } } = Astro.props;
 ---
 
-<article>
-  <small>{url}</small>
-  <p class="title"><a href={url}>{title}</a></p>
-  <p class="description">{description}</p>
+<article class="search-result">
+  <h2><a href={url}>{title}</a></h2>
+  <p>{description}</p>
 </article>
-
-<style>
-  article * {
-    margin: 0;
-  }
-
-  article {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--size-1);
-    padding: var(--size-3) 0;
-    border-top: 1px solid var(--paper-3);
-  }
-
-  article:last-of-type {
-    border-bottom: 1px solid var(--paper-3);
-  }
-
-  article small {
-    color: var(--ink-3);
-    font-family: var(--font-mono);
-  }
-
-  article p.title a {
-    font-weight: bold;
-  }
-
-  article p.description {
-    color: var(--ink-3);
-  }
-</style>

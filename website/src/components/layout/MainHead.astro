@@ -10,6 +10,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 import '@styles/main.css';
 ---
 
+<script is:inline>
+  try {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light' || theme === 'dark') {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch {}
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title} | Mykal Machon</title>
@@ -25,6 +33,35 @@ import '@styles/main.css';
 <link rel="me" href="https://indieweb.social/@mykalmachon" />
 <link rel="webmention" href="https://webmention.io/mykal.codes/webmention" />
 <link rel="pingback" href="https://webmention.io/mykal.codes/xmlrpc" />
+<script>
+  const themeToggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const systemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const currentTheme = () => document.documentElement.dataset.theme || systemTheme();
+
+  const updateThemeToggle = () => {
+    if (!themeToggle) return;
+    const theme = currentTheme();
+    themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+  };
+
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark';
+    const root = document.documentElement;
+
+    if (nextTheme === systemTheme()) {
+      delete root.dataset.theme;
+      localStorage.removeItem('theme');
+    } else {
+      root.dataset.theme = nextTheme;
+      localStorage.setItem('theme', nextTheme);
+    }
+
+    updateThemeToggle();
+  });
+
+  updateThemeToggle();
+</script>
 {
   import.meta.env.MODE === 'production' && (
     <script defer data-domain="mykalmachon.com" src="https://analytics.machon.cloud/js/script.tagged-events.js" />

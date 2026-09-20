@@ -1,6 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
 <header>
   <nav aria-label="Main navigation">
-    <a href="/">Mykal Machon</a>
+    <div class="site-identity">
+      <a href="/">Mykal Machon</a>
+      <button type="button" class="theme-toggle" data-theme-toggle>
+        <Icon name="mdi:weather-sunny" class="theme-icon theme-icon--light" aria-hidden="true" />
+        <Icon name="mdi:weather-night" class="theme-icon theme-icon--dark" aria-hidden="true" />
+        <span class="visually-hidden">Toggle theme</span>
+      </button>
+    </div>
     <ul>
       <li><a href="/posts">Posts</a></li>
       <li><a href="/about-me">About</a></li>

@@ -211,6 +211,41 @@ select {
   border-top: 1px solid var(--border);
 }
 
+.post-listing {
+  padding: 0.75rem 0;
+}
+
+.post-listing h3,
+.post-listing p {
+  margin: 0;
+}
+
+.post-listing__header {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.post-listing h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.post-listing p,
+.post-listing time {
+  color: var(--muted);
+}
+
+.post-listing time {
+  white-space: nowrap;
+}
+
+.post-listing p {
+  margin-top: 0.25rem;
+}
+
 .command-palette {
   position: fixed;
   inset: 10vh auto auto 50%;

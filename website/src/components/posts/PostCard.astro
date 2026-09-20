@@ -3,12 +3,17 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
   post: CollectionEntry<'posts'>;
+  showDescription?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, showDescription = false } = Astro.props;
+const formattedDate = post.data.pubDate.toISOString().slice(0, 10);
 ---
 
 <article class="post-listing">
-  <h3><a href={`/posts/${post.id}`}>{post.data.title}</a></h3>
-  <p>{post.data.type} · <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toDateString()}</time></p>
+  <div class="post-listing__header">
+    <h3><a href={`/posts/${post.id}`}>{post.data.title}</a></h3>
+    <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+  </div>
+  {showDescription && <p>{post.data.description}</p>}
 </article>

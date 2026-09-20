@@ -17,7 +17,8 @@ const commands: Item[] = [
   { title: 'Feeds', description: 'Subscribe via RSS or JSON', url: '/feeds', kind: 'Navigate' },
   { title: 'Contact', description: 'Get in touch', url: '/contact', kind: 'Navigate' },
   { title: 'GitHub', description: 'View my open-source work', url: 'https://github.com/MykalMachon', kind: 'Social' },
-  { title: 'Bluesky', description: 'Read short posts and rants', url: 'https://bsky.app/profile/mykal.codes/', kind: 'Social' },
+  { title: 'X', description: 'Read updates and thoughts', url: 'https://x.com/mykalmachon', kind: 'Social' },
+  { title: 'Bluesky', description: 'Read short posts and rants', url: 'https://bsky.app/profile/mykalmachon.com', kind: 'Social' },
   { title: 'LinkedIn', description: 'View my career profile', url: 'https://www.linkedin.com/in/mykalmachon/', kind: 'Social' },
 ];
 

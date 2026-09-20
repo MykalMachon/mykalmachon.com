@@ -7,24 +7,18 @@ export const prerender = true;
 const allPosts = await getCollection("posts", ({ data }) => data.draft !== true);
 const recentPosts = allPosts
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-  .slice(0, 7);
+  .slice(0, 5);
 ---
 
 <Layout title="Home" description="The home page of Mykal Machon!" type="home">
   <h1>Mykal Machon</h1>
-  <p>Welcome to my personal website! I share posts, notes, photos, and more here. Have fun exploring.</p>
-
+  <p>
+    I'm a Senior Software Engineer in Railway's Support Org. This is where I
+    write about software, infrastructure, tools, and personal projects, along
+    with the occasional note or photo. <a href="/about-me">More about me</a>.
+  </p>
   <section>
-    <h2>Latest post</h2>
-    <article>
-      <h3><a href={`/posts/${recentPosts[0].id}`}>{recentPosts[0].data.title}</a></h3>
-      <p>{recentPosts[0].data.description}</p>
-    </article>
-  </section>
-
-  <section>
-    <h2>Other posts</h2>
-    <p>I write about programming, web development, tech, and other nerdy stuff.</p>
-    <PostList posts={recentPosts.slice(1)} showArchiveLink={true} />
+    <h2>Recent posts</h2>
+    <PostList posts={recentPosts} showArchiveLink={true} showDescriptions={true} />
   </section>
 </Layout>

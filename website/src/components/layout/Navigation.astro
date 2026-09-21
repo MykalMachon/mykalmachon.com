@@ -1,15 +1,10 @@
 ---
-export interface Props {
-  variant: 'home' | 'page' | 'post';
-}
-
-const { variant } = Astro.props;
 const path = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <nav class="main-nav" aria-label="Main navigation">
-    {variant !== 'home' && <a class="site-title wordmark" href="/" transition:name="site-title">Mykal Machon</a>}
+    <a class="site-title" href="/" transition:name="site-title">Mykal Machon</a>
     <ul>
       <li><a href="/posts" aria-current={path.startsWith('/posts') ? 'page' : undefined}>Posts</a></li>
       <li><a href="/about-me" aria-current={path === '/about-me' ? 'page' : undefined}>About</a></li>

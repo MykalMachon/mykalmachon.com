@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description || ''} type="post">
+<Layout title={post.data.title} description={post.data.description || ''}>
   <article>
     <header>
       {post.data.type == 'link' ? <h1 transition:name={`post-title-${post.id}`}><a href={post.data.url}>{post.data.title}</a></h1> : <h1 transition:name={`post-title-${post.id}`}>{post.data.title}</h1>}

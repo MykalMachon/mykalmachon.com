@@ -6,10 +6,9 @@ import CommandPalette from '../search/CommandPalette.tsx';
 export interface Props {
   title: string;
   description: string;
-  type?: 'home' | 'page' | 'post';
 }
 
-const { title, description, type = 'page' } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,7 +17,7 @@ const { title, description, type = 'page' } = Astro.props;
     <MainHead title={title} description={description} />
   </head>
   <body>
-    <Navigation variant={type} />
+    <Navigation />
     <main>
       <slot />
     </main>

@@ -4,17 +4,20 @@ export interface Props {
 }
 
 const { variant } = Astro.props;
+const path = Astro.url.pathname;
 ---
 
-<header>
-  <nav aria-label="Main navigation">
-    <div class="site-identity">
-      {variant !== 'home' && <a class="site-title" href="/" transition:name="site-title">Mykal Machon</a>}
-    </div>
+<header class="site-header">
+  <nav class="main-nav" aria-label="Main navigation">
+    {variant !== 'home' && <a class="site-title wordmark" href="/" transition:name="site-title">Mykal Machon</a>}
     <ul>
-      <li><a href="/posts">Posts</a></li>
-      <li><a href="/about-me">About</a></li>
-      <li><button type="button" class="nav-button" data-command-palette-trigger aria-haspopup="dialog">Search</button></li>
+      <li><a href="/posts" aria-current={path.startsWith('/posts') ? 'page' : undefined}>Posts</a></li>
+      <li><a href="/about-me" aria-current={path === '/about-me' ? 'page' : undefined}>About</a></li>
+      <li>
+        <button type="button" class="nav-button" data-command-palette-trigger aria-haspopup="dialog">
+          Search <kbd aria-hidden="true">⌘K</kbd>
+        </button>
+      </li>
     </ul>
   </nav>
 </header>

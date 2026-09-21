@@ -11,13 +11,15 @@ const recentPosts = allPosts
 ---
 
 <Layout title="Home" description="The home page of Mykal Machon!" type="home">
-  <h1 transition:name="site-title">Mykal Machon</h1>
-  <p>
-    I'm a Senior Software Engineer in Railway's Support Org. I write about
-    software, infrastructure, tools, personal projects, and the occasional note
-    or photo. Read <a href="/about-me">more about me</a>.
-  </p>
-  <section>
+  <section class="home-hero">
+    <h1 class="wordmark" transition:name="site-title">Mykal Machon</h1>
+    <p class="home-intro">
+      I'm a Senior Software Engineer at Railway.
+      I use this site to experiment and write about software, infrastructure, tools, personal projects, etc.
+      You can read <a href="/about-me">more about me here</a>.
+    </p>
+  </section>
+  <section class="recent-posts">
     <h2>Recent posts</h2>
     <PostList posts={recentPosts} showArchiveLink={true} showDescriptions={true} />
   </section>

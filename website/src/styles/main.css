@@ -10,7 +10,6 @@
   --accent: #9b3f27;
   --border: #d8d5cd;
   --code-background: #eceae4;
-  --serif: Georgia, "Times New Roman", serif;
   --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
@@ -102,8 +101,7 @@ body > .site-footer {
 
 .site-title {
   color: var(--text);
-  font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
 }
@@ -149,8 +147,9 @@ h3 {
 
 h1,
 h2 {
-  font-family: var(--serif);
-  letter-spacing: -0.025em;
+  font-family: var(--sans);
+  font-weight: 750;
+  letter-spacing: -0.035em;
 }
 
 h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }

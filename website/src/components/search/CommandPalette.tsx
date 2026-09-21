@@ -125,7 +125,6 @@ export default function CommandPalette() {
           aria-activedescendant={results[activeIndex] ? `command-result-${activeIndex}` : undefined}
           placeholder="Search posts or navigate..."
         />
-        <kbd>Esc</kbd>
       </form>
       <div className="command-palette__results">
         {!searchReady && <p>Loading search…</p>}
@@ -144,7 +143,7 @@ export default function CommandPalette() {
         ))}
         {searchReady && results.length === 0 && <p>No results found.</p>}
       </div>
-      <p className="command-palette__hint">Search posts, pages, and social links. Press <kbd>⌘K</kbd> or <kbd>Ctrl K</kbd> to open.</p>
+      <p className="command-palette__hint">Search posts, pages, and social links. Press <kbd>Esc</kbd> to close.</p>
     </dialog>
   );
 }

@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon/components';
 const year = new Date().getFullYear();
 ---
 
-<footer>
+<footer class="site-footer">
   <nav aria-label="Footer navigation">
     <ul>
       <li><a href="/feeds">Feeds</a></li>
@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
     </ul>
   </nav>
   <div class="footer-meta">
-    <p>{year} © Mykal Machon, Canada</p>
+    <p>{year} © Mykal Machon <span aria-hidden="true">·</span> Canada</p>
     <button type="button" class="theme-toggle" data-theme-toggle>
       <Icon name="mdi:weather-sunny" class="theme-icon theme-icon--light" aria-hidden="true" />
       <Icon name="mdi:weather-night" class="theme-icon theme-icon--dark" aria-hidden="true" />

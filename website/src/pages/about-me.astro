@@ -1,120 +1,18 @@
 ---
 import Layout from '@components/layout/Layout.astro';
-import { Icon } from 'astro-icon/components';
+import { getEntry, render } from 'astro:content';
+
 export const prerender = true;
+
+const page = await getEntry('pages', 'about-me');
+
+if (!page) {
+  throw new Error('About page content was not found');
+}
+
+const { Content } = await render(page);
 ---
 
-<Layout
-  title="About Me"
-  description="Some info about my education, career, and interests"
->
-  <h1>About Me</h1>
-  <p>
-    I'm Mykal! I'm a Senior Software Engineer in the Support Org at <a
-      href="https://railway.com/">Railway</a
-    >. I also do freelance software development work through my company <a
-      href="https://tinybox.dev/">Tinybox Software</a
-    >. If you want to know more about my career, you can check out my <a
-      href="https://www.linkedin.com/in/mykalmachon/">Linkedin</a
-    >.
-  </p>
-  <p>
-    I also contribute to, and release my own open-source software <a
-      href="https://github.com/MykalMachon">on GitHub</a
-    >
-  </p>
-
-  <h2>Technical interests</h2>
-  <p>
-    I've been programming on and off since I learned about scripting in
-    GameMaker 8 as a middle-schooler in 2013. I'm openly addicted to learning
-    and tend to get bored in roles where I'm not challenged.
-  </p>
-
-  <p>
-    These traits have led me to a few rewarding jobs so far. I've worked in
-    general IT and web development, and now work as a Senior Software Engineer
-    in Railway's Support Org. I've dabbled in a bunch of languages, tools, and
-    services but I'm most up-to-date with the following:
-  </p>
-
-  <div class="about-details">
-    <details>
-      <summary><Icon name="mdi:code-tags" aria-hidden="true" /> Languages & runtimes</summary>
-      <ul>
-        <li><strong>HTML / CSS / JS</strong>: good old web primitives.</li>
-        <li>
-          <strong>Typescript</strong>: can't get much better than JS with types.
-        </li>
-        <li>
-          <strong>Go</strong>: for simple, fast services and command-line tools.
-        </li>
-        <li>
-          <strong>Node.js</strong>: for web servers, job runners, desktop apps,
-          scripts, etc.
-        </li>
-        <li>
-          <strong>Python</strong>: I love the simplicity and beauty of Python
-          code. It's just so fun to write.
-        </li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><Icon name="mdi:tools" aria-hidden="true" /> Tools and libraries</summary>
-      <ul>
-        <li>
-          <strong>React</strong>: for building interactive web applications.
-        </li>
-        <li>
-          <strong>Flask</strong>: the most flexible way to write web stuff with
-          Python.
-        </li>
-        <li>
-          <strong>Docker</strong>: makes deps management, development, and
-          deploys trivial.
-        </li>
-        <li>
-          <strong>Drizzle Kit</strong>: for managing database schemas and
-          migrations.
-        </li>
-        <li>
-          <strong>SQLAlchemy</strong>: my go-to ORM for python-based projects.
-        </li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><Icon name="mdi:cloud-outline" aria-hidden="true" /> Hosting and DevOps</summary>
-      <ul>
-        <li>
-          <strong>Railway</strong>: for everything I run in the cloud.
-        </li>
-        <li>
-          <strong>GitHub</strong>: the defacto hosted version control and CI/CD
-          pipeline.
-        </li>
-      </ul>
-    </details>
-  </div>
-
-  <h2>Elsewhere</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/MykalMachon">GitHub</a>: for my open source
-      projects.
-    </li>
-    <li>
-      <a href="https://x.com/mykalmachon">X</a>: for updates and thoughts.
-    </li>
-    <li>
-      <a href="https://bsky.app/profile/mykalmachon.com">Bluesky</a>: for small
-      posts and rants about stuff.
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/mykalmachon/">Linkedin</a>: for
-      career and resume stuff.
-    </li>
-    <li><a href="/feeds">RSS Feed</a>: Subscribe to updates on this blog</li>
-  </ul>
+<Layout title={page.data.title} description={page.data.description}>
+  <Content />
 </Layout>

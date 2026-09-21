@@ -8,11 +8,13 @@ interface Props {
 
 const { post } = Astro.props;
 const rt = readingTime(post.body).text;
+const tagCount = post.data.tags?.length ?? 0;
+const tagLabel = tagCount === 0 ? 'no tags' : tagCount === 1 ? '1 tag' : `${tagCount} tags`;
 ---
 
 <div class="post-meta">
   {post.data.pubDate && <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toDateString()}</time>}
   {post.data.type != 'photo' && <span>{rt}</span>}
   {post.data.location && <span>{post.data.location}</span>}
-  {post.data.tags && <a href="#tags">{post.data.tags.length} tags</a>}
+  {tagCount > 0 ? <a href="#tags">{tagLabel}</a> : <span>{tagLabel}</span>}
 </div>

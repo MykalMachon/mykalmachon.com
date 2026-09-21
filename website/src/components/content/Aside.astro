@@ -1,0 +1,13 @@
+---
+interface Props {
+  type?: 'note' | 'tip' | 'warning';
+  title?: string;
+}
+
+const { type = 'note', title } = Astro.props;
+---
+
+<aside class={`content-aside content-aside--${type}`}>
+  {title && <p class="content-aside__title">{title}</p>}
+  <div class="content-aside__body"><slot /></div>
+</aside>

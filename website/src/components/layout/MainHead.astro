@@ -65,6 +65,13 @@ import '@styles/main.css';
     updateThemeToggles();
   });
 
+  document.addEventListener('astro:before-swap', (event) => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      event.newDocument.documentElement.dataset.theme = savedTheme;
+    }
+  });
+
   document.addEventListener('astro:page-load', updateThemeToggles);
   updateThemeToggles();
 </script>

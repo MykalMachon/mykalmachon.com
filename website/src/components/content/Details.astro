@@ -1,0 +1,18 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  icon?: string;
+}
+
+const { title, icon } = Astro.props;
+---
+
+<details class="content-details">
+  <summary>
+    {icon && <Icon name={icon} aria-hidden="true" />}
+    {title}
+  </summary>
+  <div class="content-details__body"><slot /></div>
+</details>
